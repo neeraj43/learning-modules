@@ -742,7 +742,7 @@ const BestPracticesExample = () => {
               <div className="bg-emerald-50 p-4 rounded-lg border border-emerald-200">
                 <h4 className="font-semibold text-emerald-900 mb-2 flex items-center gap-2">
                   <CheckCircle className="w-4 h-4" />
-                  Do's
+                  Do&apos;s
                 </h4>
                 <ul className="text-emerald-800 text-sm space-y-1">
                   <li>• Use functional updates for better performance</li>
@@ -756,14 +756,14 @@ const BestPracticesExample = () => {
               <div className="bg-red-50 p-4 rounded-lg border border-red-200">
                 <h4 className="font-semibold text-red-900 mb-2 flex items-center gap-2">
                   <AlertTriangle className="w-4 h-4" />
-                  Don'ts
+                  Don&apos;ts
                 </h4>
                 <ul className="text-red-800 text-sm space-y-1">
-                  <li>• Don't mutate state directly</li>
+                  <li>• Don&apos;t mutate state directly</li>
                   <li>• Avoid creating objects in selectors</li>
-                  <li>• Don't overuse Context for everything</li>
+                  <li>• Don&apos;t overuse Context for everything</li>
                   <li>• Avoid deep nesting in state</li>
-                  <li>• Don't ignore React's batching</li>
+                  <li>• Don&apos;t ignore React&apos;s batching</li>
                 </ul>
               </div>
 

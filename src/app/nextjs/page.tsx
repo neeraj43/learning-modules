@@ -50,7 +50,7 @@ const NextJSPage = () => {
   const [users, setUsers] = useState<User[]>([])
   const [posts, setPosts] = useState<Post[]>([])
   const [loading, setLoading] = useState(false)
-  const [apiResults, setApiResults] = useState<Record<string, any>>({})
+  const [apiResults, setApiResults] = useState<Record<string, ApiResponse<User[]> | ApiResponse<Post[]> | ApiResponse<User> | string | number>>({})
 
   const sections = [
     { id: 'routing', name: 'File-based Routing', icon: Route },
@@ -310,8 +310,8 @@ interface ApiSectionProps {
   loading: boolean
   onFetchUsers: (filters?: { role?: string; limit?: number }) => void
   onFetchPosts: (filters?: { category?: string; limit?: number }) => void
-  onCreateUser: (userData: { name: string; email: string; role: string }) => Promise<any>
-  apiResults: Record<string, any>
+  onCreateUser: (userData: { name: string; email: string; role: string }) => Promise<ApiResponse<User> | { success: boolean; error: string }>
+  apiResults: Record<string, ApiResponse<User[]> | ApiResponse<Post[]> | ApiResponse<User> | string | number>
 }
 
 const ApiSection: React.FC<ApiSectionProps> = ({

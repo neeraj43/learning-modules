@@ -148,7 +148,7 @@ export const UseEffectExamples = () => {
   const [seconds, setSeconds] = useState(0)
   const [isRunning, setIsRunning] = useState(false)
   const [windowWidth, setWindowWidth] = useState(0)
-  const [posts, setPosts] = useState<any[]>([])
+  const [posts, setPosts] = useState<{id: number; title: string; body: string}[]>([])
   const [loading, setLoading] = useState(false)
 
   // Effect with cleanup (timer)
@@ -186,9 +186,9 @@ export const UseEffectExamples = () => {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 1000))
       const mockPosts = [
-        { id: 1, title: 'First Post', content: 'This is the first post' },
-        { id: 2, title: 'Second Post', content: 'This is the second post' },
-        { id: 3, title: 'Third Post', content: 'This is the third post' }
+        { id: 1, title: 'First Post', body: 'This is the first post' },
+        { id: 2, title: 'Second Post', body: 'This is the second post' },
+        { id: 3, title: 'Third Post', body: 'This is the third post' }
       ]
       setPosts(mockPosts)
     } finally {
@@ -254,7 +254,7 @@ export const UseEffectExamples = () => {
               {posts.map(post => (
                 <div key={post.id} className="p-3 bg-gray-50 rounded">
                   <h5 className="font-medium">{post.title}</h5>
-                  <p className="text-sm text-gray-600">{post.content}</p>
+                  <p className="text-sm text-gray-600">{post.body}</p>
                 </div>
               ))}
             </div>
@@ -529,7 +529,7 @@ export const UseCallbackUseMemoExample = () => {
 export const UseRefExample = () => {
   const [count, setCount] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
-  const prevCountRef = useRef<number>()
+  const prevCountRef = useRef<number>(0)
   const renderCountRef = useRef(0)
 
   useEffect(() => {
@@ -582,7 +582,7 @@ export const UseRefExample = () => {
 
         {/* Persistent values */}
         <div>
-          <h4 className="font-medium mb-2">Persistent Values (Don't Trigger Re-renders)</h4>
+          <h4 className="font-medium mb-2">Persistent Values (Don&apos;t Trigger Re-renders)</h4>
           <div className="space-y-2">
             <div className="flex items-center gap-4">
               <button

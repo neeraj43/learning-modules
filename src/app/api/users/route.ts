@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+// Static export configuration
+export const dynamic = 'force-static'
+
 // Mock user data
 const users = [
   { id: 1, name: 'John Doe', email: 'john@example.com', role: 'admin' },

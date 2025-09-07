@@ -9,12 +9,12 @@ interface CodeExample {
   title: string
   description: string
   code: string
-  demo: () => any
+  demo: () => string | number | boolean | object
 }
 
 const JavaScriptPage = () => {
   const [activeSection, setActiveSection] = useState('variables')
-  const [executionResults, setExecutionResults] = useState<Record<string, any>>({})
+  const [executionResults, setExecutionResults] = useState<Record<string, string | number | boolean | object>>({})
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
 
   const sections = [
@@ -54,14 +54,18 @@ const z = 1;
 // z = 2; // Error!`,
         demo: () => {
           let result = '';
+          // eslint-disable-next-line no-var
           var x = 1;
           if (true) {
+            // eslint-disable-next-line no-var
             var x = 2;
           }
           result += `var x: ${x}\n`;
           
+          // eslint-disable-next-line prefer-const
           let y = 1;
           if (true) {
+            // eslint-disable-next-line prefer-const
             let y = 2;
           }
           result += `let y: ${y}\n`;
@@ -773,7 +777,7 @@ const dateMatch = dateRegex.exec('2023-12-25');`,
                           </div>
                         ) : (
                           <div className="text-gray-500 text-center py-8">
-                            Click "Run Code" to see the output
+                            Click &quot;Run Code&quot; to see the output
                           </div>
                         )}
                       </div>

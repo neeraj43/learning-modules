@@ -2,6 +2,11 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  // Static export configuration for Firebase Hosting
+  output: 'export',
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
+  
   experimental: {
     // Enable CSS Modules with custom naming
     cssChunking: 'strict'
@@ -9,6 +14,11 @@ const nextConfig: NextConfig = {
   // CSS Modules configuration
   sassOptions: {
     includePaths: ['./src/styles'],
+  },
+  
+  // Image optimization disabled for static export
+  images: {
+    unoptimized: true
   },
   // Module Federation configuration
   // Temporarily disabled due to compatibility issues with Next.js 15.5.2

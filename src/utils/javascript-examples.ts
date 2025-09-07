@@ -13,8 +13,10 @@ export const variableExamples = {
 
   // Variable declarations
   varExample: function() {
+    // eslint-disable-next-line no-var
     var x = 1;
     if (true) {
+      // eslint-disable-next-line no-var
       var x = 2; // Same variable
       console.log(x); // 2
     }
@@ -22,8 +24,10 @@ export const variableExamples = {
   },
 
   letExample: function() {
+    // eslint-disable-next-line prefer-const
     let y = 1;
     if (true) {
+      // eslint-disable-next-line prefer-const
       let y = 2; // Different variable
       console.log(y); // 2
     }
@@ -179,39 +183,41 @@ export const asyncExamples = {
 };
 
 // 5. ARRAY METHODS
-export const arrayMethods = {
-  sourceArray: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+const sourceArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+export const arrayMethods: Record<string, unknown> = {
+  sourceArray,
 
   // Map - transform each element
-  mapExample: (arr: number[] = arrayMethods.sourceArray) => 
+  mapExample: (arr: number[] = sourceArray) => 
     arr.map(x => x * 2),
 
   // Filter - select elements that meet condition
-  filterExample: (arr: number[] = arrayMethods.sourceArray) => 
+  filterExample: (arr: number[] = sourceArray) => 
     arr.filter(x => x % 2 === 0),
 
   // Reduce - accumulate to single value
-  reduceExample: (arr: number[] = arrayMethods.sourceArray) => 
+  reduceExample: (arr: number[] = sourceArray) => 
     arr.reduce((sum, current) => sum + current, 0),
 
   // Find - first element that meets condition
-  findExample: (arr: number[] = arrayMethods.sourceArray) => 
+  findExample: (arr: number[] = sourceArray) => 
     arr.find(x => x > 5),
 
   // Some - check if any element meets condition
-  someExample: (arr: number[] = arrayMethods.sourceArray) => 
+  someExample: (arr: number[] = sourceArray) => 
     arr.some(x => x > 8),
 
   // Every - check if all elements meet condition
-  everyExample: (arr: number[] = arrayMethods.sourceArray) => 
+  everyExample: (arr: number[] = sourceArray) => 
     arr.every(x => x > 0),
 
   // Sort - sort elements
-  sortExample: (arr: number[] = [...arrayMethods.sourceArray]) => 
+  sortExample: (arr: number[] = [...sourceArray]) => 
     arr.sort((a, b) => b - a), // Descending order
 
   // ForEach - execute function for each element
-  forEachExample: (arr: number[] = arrayMethods.sourceArray) => {
+  forEachExample: (arr: number[] = sourceArray) => {
     const result: string[] = [];
     arr.forEach((value, index) => {
       result.push(`Index ${index}: ${value}`);
@@ -220,7 +226,7 @@ export const arrayMethods = {
   },
 
   // Chaining methods
-  chainExample: (arr: number[] = arrayMethods.sourceArray) => 
+  chainExample: (arr: number[] = sourceArray) => 
     arr
       .filter(x => x % 2 === 0)
       .map(x => x * 3)
@@ -228,22 +234,24 @@ export const arrayMethods = {
 };
 
 // 6. OBJECT METHODS AND MANIPULATION
-export const objectMethods = {
-  sampleObject: {
-    name: "John Doe",
-    age: 30,
-    email: "john@example.com",
-    hobbies: ["reading", "coding", "gaming"]
-  },
+const sampleObject = {
+  name: "John Doe",
+  age: 30,
+  email: "john@example.com",
+  hobbies: ["reading", "coding", "gaming"]
+};
+
+export const objectMethods: Record<string, unknown> = {
+  sampleObject,
 
   // Object.keys
-  getKeys: (obj = objectMethods.sampleObject) => Object.keys(obj),
+  getKeys: (obj = sampleObject) => Object.keys(obj),
 
   // Object.values
-  getValues: (obj = objectMethods.sampleObject) => Object.values(obj),
+  getValues: (obj = sampleObject) => Object.values(obj),
 
   // Object.entries
-  getEntries: (obj = objectMethods.sampleObject) => Object.entries(obj),
+  getEntries: (obj = sampleObject) => Object.entries(obj),
 
   // Object.assign
   objectAssign: () => {
@@ -254,12 +262,12 @@ export const objectMethods = {
 
   // Object destructuring with renaming
   destructureWithRename: () => {
-    const { name: fullName, age: yearsOld } = objectMethods.sampleObject;
+    const { name: fullName, age: yearsOld } = sampleObject;
     return { fullName, yearsOld };
   },
 
   // Computed property names
-  computedPropertyNames: (key: string, value: any) => ({
+  computedPropertyNames: (key: string, value: string | number) => ({
     [key]: value,
     [`${key}_computed`]: `computed_${value}`
   })
@@ -334,8 +342,9 @@ export const closureExamples = {
 };
 
 // 9. PROTOTYPE AND CLASSES
-export const prototypeExamples = {
+export const prototypeExamples: Record<string, unknown> = {
   // Constructor function
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   PersonConstructor: function(this: any, name: string, age: number) {
     this.name = name;
     this.age = age;
@@ -343,6 +352,7 @@ export const prototypeExamples = {
 
   // Adding method to prototype
   addMethodToPrototype: () => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (prototypeExamples.PersonConstructor as any).prototype.introduce = function() {
       return `Hi, I'm ${this.name} and I'm ${this.age} years old`;
     };
@@ -356,19 +366,18 @@ export const prototypeExamples = {
       return `Hi, I'm ${this.name} and I'm ${this.age} years old`;
     }
 
-    static createAdult(name: string): InstanceType<typeof prototypeExamples.PersonClass> {
-      return new prototypeExamples.PersonClass(name, 18);
+    static createAdult(name: string) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      return new (prototypeExamples.PersonClass as any)(name, 18);
     }
   },
 
-  // Class inheritance
-  StudentClass: class extends prototypeExamples.PersonClass {
-    constructor(name: string, age: number, public grade: string) {
-      super(name, age);
-    }
-
+  // Class inheritance  
+  StudentClass: class StudentClass {
+    constructor(public name: string, public age: number, public grade: string) {}
+    
     introduce(): string {
-      return `${super.introduce()} I'm in grade ${this.grade}`;
+      return `Hi, I'm ${this.name}, I'm ${this.age} years old and in grade ${this.grade}`;
     }
   }
 };

@@ -314,7 +314,7 @@ const UserListContainer = () => {
       {isSearchMode && (
         <div className="mb-4 flex items-center justify-between">
           <span className="text-sm text-gray-600">
-            Search results for "{searchQuery}" ({searchResults.length} found)
+            Search results for &quot;{searchQuery}&quot; ({searchResults.length} found)
           </span>
           <Button size="sm" variant="ghost" onClick={clearSearch}>
             Clear Search
@@ -406,7 +406,7 @@ const ContainerPresentationalExample = () => {
                 <ul className="text-green-800 text-sm space-y-2">
                   <li>• Focus only on how things look</li>
                   <li>• Receive data and callbacks via props</li>
-                  <li>• Don't manage application state</li>
+                  <li>• Don&apos;t manage application state</li>
                   <li>• Highly reusable and testable</li>
                   <li>• Usually functional components</li>
                 </ul>
@@ -455,7 +455,7 @@ const ContainerPresentationalExample = () => {
                   <li>• <strong>Testability:</strong> Easier to test UI and logic separately</li>
                 </ul>
                 <ul className="text-purple-800 text-sm space-y-1">
-                  <li>• <strong>Maintainability:</strong> Changes to one don't affect the other</li>
+                  <li>• <strong>Maintainability:</strong> Changes to one don&apos;t affect the other</li>
                   <li>• <strong>Team Collaboration:</strong> Designers can work on UI, developers on logic</li>
                   <li>• <strong>Debugging:</strong> Easier to isolate and fix issues</li>
                 </ul>
@@ -548,8 +548,8 @@ const UserListContainer = () => {
             <div className="bg-gray-50 p-4 rounded-lg">
               <h4 className="font-semibold text-gray-900 mb-2">Key Principles</h4>
               <ul className="text-gray-700 text-sm space-y-1">
-                <li>• Presentational components are "dumb" - they don't know where data comes from</li>
-                <li>• Container components are "smart" - they know how to fetch and manage data</li>
+                <li>• Presentational components are &quot;dumb&quot; - they don&apos;t know where data comes from</li>
+                <li>• Container components are &quot;smart&quot; - they know how to fetch and manage data</li>
                 <li>• Props flow down, events flow up</li>
                 <li>• Presentational components should be pure functions when possible</li>
                 <li>• Container components handle side effects and state management</li>

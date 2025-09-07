@@ -438,13 +438,13 @@ const ValidationExamples = () => {
             <div className="bg-gray-50 p-4 rounded-lg">
               <h4 className="font-medium text-gray-900 mb-2">Email Validation</h4>
               <code className="text-sm text-gray-600">
-                z.string().email('Invalid email format')
+                z.string().email(&apos;Invalid email format&apos;)
               </code>
             </div>
             <div className="bg-gray-50 p-4 rounded-lg">
               <h4 className="font-medium text-gray-900 mb-2">Phone Validation</h4>
               <code className="text-sm text-gray-600">
-                z.string().regex(/^\+?[\d\s-()]+$/, 'Invalid phone')
+                z.string().regex(/^\+?[\d\s-()]+$/, &apos;Invalid phone&apos;)
               </code>
             </div>
             <div className="bg-gray-50 p-4 rounded-lg">
@@ -456,7 +456,7 @@ const ValidationExamples = () => {
             <div className="bg-gray-50 p-4 rounded-lg">
               <h4 className="font-medium text-gray-900 mb-2">URL Validation</h4>
               <code className="text-sm text-gray-600">
-                z.string().url('Must be valid URL')
+                z.string().url(&apos;Must be valid URL&apos;)
               </code>
             </div>
           </div>

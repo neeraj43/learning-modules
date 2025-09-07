@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+// Static export configuration
+export const dynamic = 'force-static'
+
 // Mock posts data
 const posts = [
   {

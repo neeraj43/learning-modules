@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next build",
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
@@ -16,7 +17,10 @@
     "format:check": "prettier --check .",
     "dev:turbo": "cross-env TURBOPACK=1 next dev",
     "analyze": "cross-env ANALYZE=true next build",
-    "clean": "rimraf .next out dist"
+    "clean": "rimraf .next out dist",
+    "firebase:build": "next build",
+    "firebase:serve": "firebase serve",
+    "firebase:deploy": "firebase deploy"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
@@ -26,6 +30,7 @@
     "@testing-library/user-event": "^14.6.1",
     "cross-env": "^10.0.0",
     "date-fns": "^4.1.0",
+    "firebase": "^12.2.1",
     "framer-motion": "^12.23.12",
     "i18next": "^24.2.3",
     "i18next-browser-languagedetector": "^8.2.0",

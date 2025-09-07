@@ -287,7 +287,7 @@ const SettingsPanel = () => {
           <span className="text-sm">Privacy</span>
           <select
             value={settings.privacy}
-            onChange={(e) => dispatch({ type: 'SET_PRIVACY', payload: e.target.value as any })}
+            onChange={(e) => dispatch({ type: 'SET_PRIVACY', payload: e.target.value as 'public' | 'friends' | 'private' })}
             className="text-sm border rounded px-2 py-1"
           >
             <option value="public">Public</option>
@@ -319,7 +319,7 @@ const ProviderPatternExample = () => {
         <h3 className="font-semibold text-blue-900 mb-2">Provider Pattern</h3>
         <p className="text-blue-800 text-sm">
           The Provider pattern uses React Context to share state and functions across the component tree 
-          without prop drilling. It's perfect for global state, themes, authentication, and configuration.
+          without prop drilling. It&apos;s perfect for global state, themes, authentication, and configuration.
         </p>
       </div>
 

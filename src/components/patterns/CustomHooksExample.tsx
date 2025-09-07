@@ -50,7 +50,7 @@ const useToggle = (initialValue: boolean = false) => {
 }
 
 // 3. useDebounce - Debounce values to reduce API calls
-const useDebounce = <T>(value: T, delay: number): T => {
+const useDebounce = <T,>(value: T, delay: number): T => {
   const [debouncedValue, setDebouncedValue] = useState(value)
 
   useEffect(() => {
@@ -88,7 +88,7 @@ const useOnlineStatus = () => {
 
 // 5. useInterval - Declarative interval hook
 const useInterval = (callback: () => void, delay: number | null) => {
-  const savedCallback = useRef<() => void>()
+  const savedCallback = useRef<() => void>(() => {})
 
   // Remember the latest callback
   useEffect(() => {
@@ -129,7 +129,7 @@ interface UseFetchOptions {
   immediate?: boolean
 }
 
-const useFetch = <T = any>(url: string | null, options: UseFetchOptions = {}) => {
+const useFetch = <T = unknown>(url: string | null, options: UseFetchOptions = {}) => {
   const [data, setData] = useState<T | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -444,7 +444,7 @@ const FetchDemo = () => {
               </div>
             )}
 
-            {data && !loading && (
+            {data !== null && !loading && (
               <div className="bg-gray-50 p-3 rounded border">
                 <pre className="text-xs text-gray-800 overflow-x-auto">
                   {JSON.stringify(data, null, 2)}
@@ -617,7 +617,7 @@ const CustomHooksExample = () => {
                 <ul className="text-blue-800 space-y-2">
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                    <span>Start with "use" prefix for naming</span>
+                    <span>Start with &quot;use&quot; prefix for naming</span>
                   </li>
                   <li className="flex items-start">
                     <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -663,7 +663,7 @@ const ComponentB = () => {
             <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
               <h4 className="font-semibold text-purple-900 mb-2">When to Create Custom Hooks</h4>
               <ul className="text-purple-800 text-sm space-y-1">
-                <li>• You have stateful logic that's used in multiple components</li>
+                <li>• You have stateful logic that&apos;s used in multiple components</li>
                 <li>• You want to extract complex useEffect logic</li>
                 <li>• You need to encapsulate API calls or external service interactions</li>
                 <li>• You want to create reusable business logic abstractions</li>

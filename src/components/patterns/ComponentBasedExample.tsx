@@ -115,7 +115,7 @@ const ProductCard = ({
 }
 
 // 3. Organism Components (Complex combinations)
-const TeamSection = ({ users }: { users: any[] }) => {
+const TeamSection = ({ users }: { users: {name: string; role: string; email: string; avatar: string; status: 'online' | 'offline' | 'away'}[] }) => {
   return (
     <div className="bg-gray-50 p-6 rounded-lg">
       <h2 className="text-xl font-semibold text-gray-900 mb-4">Team Members</h2>
@@ -128,7 +128,7 @@ const TeamSection = ({ users }: { users: any[] }) => {
   )
 }
 
-const ProductGrid = ({ products }: { products: any[] }) => {
+const ProductGrid = ({ products }: { products: {name: string; price: number; image: string; rating: number; reviews: number}[] }) => {
   return (
     <div className="bg-gray-50 p-6 rounded-lg">
       <h2 className="text-xl font-semibold text-gray-900 mb-4">Featured Products</h2>
@@ -146,10 +146,10 @@ const ComponentBasedExample = () => {
 
   // Sample data
   const sampleUsers = [
-    { name: 'Alice Johnson', role: 'Frontend Developer', avatar: '👩‍💻', status: 'online' as const },
-    { name: 'Bob Smith', role: 'Backend Developer', avatar: '👨‍💻', status: 'away' as const },
-    { name: 'Carol Chen', role: 'UI/UX Designer', avatar: '👩‍🎨', status: 'online' as const },
-    { name: 'David Wilson', role: 'DevOps Engineer', avatar: '👨‍🔧', status: 'offline' as const }
+    { name: 'Alice Johnson', role: 'Frontend Developer', email: 'alice@company.com', avatar: '👩‍💻', status: 'online' as const },
+    { name: 'Bob Smith', role: 'Backend Developer', email: 'bob@company.com', avatar: '👨‍💻', status: 'away' as const },
+    { name: 'Carol Chen', role: 'UI/UX Designer', email: 'carol@company.com', avatar: '👩‍🎨', status: 'online' as const },
+    { name: 'David Wilson', role: 'DevOps Engineer', email: 'david@company.com', avatar: '👨‍🔧', status: 'offline' as const }
   ]
 
   const sampleProducts = [
@@ -214,7 +214,7 @@ const ComponentBasedExample = () => {
               <div className="space-y-4">
                 <div className="bg-white p-4 rounded-lg border-l-4 border-green-500">
                   <h4 className="font-medium text-green-900 mb-2">Atoms (Basic Building Blocks)</h4>
-                  <p className="text-green-800 text-sm mb-2">Smallest components that can't be broken down further</p>
+                  <p className="text-green-800 text-sm mb-2">Smallest components that can&apos;t be broken down further</p>
                   <div className="flex flex-wrap gap-2">
                     <code className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Avatar</code>
                     <code className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Badge</code>
@@ -323,7 +323,7 @@ const UserCard = ({ user, showActions = true }: UserCardProps) => {
               <h4 className="font-semibold text-green-900 mb-2">Benefits of Component-Based Architecture</h4>
               <ul className="text-green-800 text-sm space-y-1">
                 <li>• <strong>Reusability:</strong> Components can be used across different parts of the application</li>
-                <li>• <strong>Maintainability:</strong> Changes to a component automatically propagate everywhere it's used</li>
+                <li>• <strong>Maintainability:</strong> Changes to a component automatically propagate everywhere it&apos;s used</li>
                 <li>• <strong>Testability:</strong> Each component can be tested in isolation</li>
                 <li>• <strong>Consistency:</strong> Ensures UI consistency across the application</li>
                 <li>• <strong>Scalability:</strong> New features can be built by composing existing components</li>
