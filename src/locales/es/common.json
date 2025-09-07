@@ -1,0 +1,122 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "javascript": "JavaScript",
+    "react": "React",
+    "nextjs": "Next.js",
+    "examples": "Ejemplos",
+    "patterns": "Patrones",
+    "testing": "Pruebas"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "add": "Añadir",
+    "remove": "Quitar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "submit": "Enviar",
+    "reset": "Restablecer",
+    "back": "Atrás",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "close": "Cerrar",
+    "open": "Abrir"
+  },
+  "home": {
+    "title": "Aplicación Web Integral",
+    "subtitle": "Domina JavaScript, React y Next.js con ejemplos interactivos y aplicaciones del mundo real.",
+    "startLearning": "Comenzar a Aprender",
+    "viewExamples": "Ver Ejemplos",
+    "features": {
+      "javascript": {
+        "title": "Fundamentos de JavaScript",
+        "description": "Variables, funciones, ES6+, async/await, closures y más"
+      },
+      "react": {
+        "title": "Conceptos de React",
+        "description": "Hooks, componentes, gestión de estado, contexto y patrones avanzados"
+      },
+      "nextjs": {
+        "title": "Características de Next.js",
+        "description": "SSR, SSG, rutas API, enrutamiento y optimizaciones de rendimiento"
+      },
+      "examples": {
+        "title": "Ejemplos Interactivos",
+        "description": "Demos en vivo de conceptos con aplicaciones del mundo real"
+      }
+    }
+  },
+  "todos": {
+    "title": "Aplicación de Tareas",
+    "addTodo": "Añadir nueva tarea",
+    "placeholder": "¿Qué necesitas hacer?",
+    "categories": {
+      "work": "Trabajo",
+      "personal": "Personal",
+      "shopping": "Compras",
+      "health": "Salud",
+      "learning": "Aprendizaje"
+    },
+    "priorities": {
+      "low": "Baja",
+      "medium": "Media",
+      "high": "Alta"
+    },
+    "filters": {
+      "all": "Todas",
+      "active": "Activas",
+      "completed": "Completadas"
+    },
+    "stats": {
+      "total": "Total",
+      "completed": "Completadas",
+      "active": "Activas",
+      "complete": "Completo"
+    },
+    "actions": {
+      "clearCompleted": "Limpiar Completadas",
+      "markComplete": "Marcar como completa",
+      "markIncomplete": "Marcar como incompleta"
+    }
+  },
+  "cart": {
+    "title": "Carrito de Compras",
+    "addToCart": "Añadir al Carrito",
+    "removeFromCart": "Quitar del Carrito",
+    "clearCart": "Vaciar Carrito",
+    "checkout": "Proceder al Pago",
+    "total": "Total",
+    "items": "artículos",
+    "empty": "Tu carrito está vacío"
+  },
+  "auth": {
+    "login": "Iniciar Sesión",
+    "logout": "Cerrar Sesión",
+    "name": "Nombre",
+    "email": "Correo",
+    "welcome": "¡Bienvenido de vuelta!",
+    "pleaseLogin": "Por favor inicia sesión para continuar"
+  },
+  "patterns": {
+    "title": "Patrones de Arquitectura",
+    "microfrontend": "Arquitectura de Micro-frontend",
+    "componentBased": "Arquitectura Basada en Componentes",
+    "provider": "Patrón Provider",
+    "containerPresentation": "Patrón Contenedor/Presentación",
+    "customHooks": "Hooks Personalizados"
+  },
+  "testing": {
+    "title": "Ejemplos de Pruebas",
+    "unitTests": "Pruebas Unitarias",
+    "integrationTests": "Pruebas de Integración",
+    "e2eTests": "Pruebas End-to-End",
+    "runTests": "Ejecutar Pruebas",
+    "testResults": "Resultados de Pruebas"
+  }
+}

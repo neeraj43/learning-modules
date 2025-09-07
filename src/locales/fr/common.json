@@ -1,0 +1,122 @@
+{
+  "navigation": {
+    "home": "Accueil",
+    "javascript": "JavaScript",
+    "react": "React",
+    "nextjs": "Next.js",
+    "examples": "Exemples",
+    "patterns": "Modèles",
+    "testing": "Tests"
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "cancel": "Annuler",
+    "save": "Sauvegarder",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "add": "Ajouter",
+    "remove": "Retirer",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "submit": "Soumettre",
+    "reset": "Réinitialiser",
+    "back": "Retour",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "close": "Fermer",
+    "open": "Ouvrir"
+  },
+  "home": {
+    "title": "Application Web Complète",
+    "subtitle": "Maîtrisez JavaScript, React et Next.js avec des exemples interactifs et des applications réelles.",
+    "startLearning": "Commencer l'Apprentissage",
+    "viewExamples": "Voir les Exemples",
+    "features": {
+      "javascript": {
+        "title": "Fondamentaux JavaScript",
+        "description": "Variables, fonctions, ES6+, async/await, fermetures et plus"
+      },
+      "react": {
+        "title": "Concepts React",
+        "description": "Hooks, composants, gestion d'état, contexte et modèles avancés"
+      },
+      "nextjs": {
+        "title": "Fonctionnalités Next.js",
+        "description": "SSR, SSG, routes API, routage et optimisations de performance"
+      },
+      "examples": {
+        "title": "Exemples Interactifs",
+        "description": "Démonstrations en direct de concepts avec des applications réelles"
+      }
+    }
+  },
+  "todos": {
+    "title": "Application de Tâches",
+    "addTodo": "Ajouter une nouvelle tâche",
+    "placeholder": "Que devez-vous faire ?",
+    "categories": {
+      "work": "Travail",
+      "personal": "Personnel",
+      "shopping": "Achats",
+      "health": "Santé",
+      "learning": "Apprentissage"
+    },
+    "priorities": {
+      "low": "Faible",
+      "medium": "Moyenne",
+      "high": "Élevée"
+    },
+    "filters": {
+      "all": "Toutes",
+      "active": "Actives",
+      "completed": "Terminées"
+    },
+    "stats": {
+      "total": "Total",
+      "completed": "Terminées",
+      "active": "Actives",
+      "complete": "Complet"
+    },
+    "actions": {
+      "clearCompleted": "Effacer les Terminées",
+      "markComplete": "Marquer comme terminée",
+      "markIncomplete": "Marquer comme incomplète"
+    }
+  },
+  "cart": {
+    "title": "Panier d'Achats",
+    "addToCart": "Ajouter au Panier",
+    "removeFromCart": "Retirer du Panier",
+    "clearCart": "Vider le Panier",
+    "checkout": "Procéder au Paiement",
+    "total": "Total",
+    "items": "articles",
+    "empty": "Votre panier est vide"
+  },
+  "auth": {
+    "login": "Se Connecter",
+    "logout": "Se Déconnecter",
+    "name": "Nom",
+    "email": "Email",
+    "welcome": "Bon retour !",
+    "pleaseLogin": "Veuillez vous connecter pour continuer"
+  },
+  "patterns": {
+    "title": "Modèles d'Architecture",
+    "microfrontend": "Architecture Micro-frontend",
+    "componentBased": "Architecture Basée sur les Composants",
+    "provider": "Modèle Provider",
+    "containerPresentation": "Modèle Conteneur/Présentation",
+    "customHooks": "Hooks Personnalisés"
+  },
+  "testing": {
+    "title": "Exemples de Tests",
+    "unitTests": "Tests Unitaires",
+    "integrationTests": "Tests d'Intégration",
+    "e2eTests": "Tests End-to-End",
+    "runTests": "Exécuter les Tests",
+    "testResults": "Résultats des Tests"
+  }
+}

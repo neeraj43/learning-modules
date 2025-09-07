@@ -1,0 +1,122 @@
+{
+  "navigation": {
+    "home": "Home",
+    "javascript": "JavaScript",
+    "react": "React",
+    "nextjs": "Next.js",
+    "examples": "Examples",
+    "patterns": "Patterns",
+    "testing": "Testing"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "remove": "Remove",
+    "search": "Search",
+    "filter": "Filter",
+    "submit": "Submit",
+    "reset": "Reset",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "close": "Close",
+    "open": "Open"
+  },
+  "home": {
+    "title": "Comprehensive Web App",
+    "subtitle": "Master JavaScript, React, and Next.js with interactive examples and real-world applications.",
+    "startLearning": "Start Learning",
+    "viewExamples": "View Examples",
+    "features": {
+      "javascript": {
+        "title": "JavaScript Fundamentals",
+        "description": "Variables, functions, ES6+, async/await, closures, and more"
+      },
+      "react": {
+        "title": "React Concepts",
+        "description": "Hooks, components, state management, context, and advanced patterns"
+      },
+      "nextjs": {
+        "title": "Next.js Features",
+        "description": "SSR, SSG, API routes, routing, and performance optimizations"
+      },
+      "examples": {
+        "title": "Interactive Examples",
+        "description": "Live demos of concepts with real-world applications"
+      }
+    }
+  },
+  "todos": {
+    "title": "Todo Application",
+    "addTodo": "Add new todo",
+    "placeholder": "What needs to be done?",
+    "categories": {
+      "work": "Work",
+      "personal": "Personal",
+      "shopping": "Shopping",
+      "health": "Health",
+      "learning": "Learning"
+    },
+    "priorities": {
+      "low": "Low",
+      "medium": "Medium",
+      "high": "High"
+    },
+    "filters": {
+      "all": "All",
+      "active": "Active",
+      "completed": "Completed"
+    },
+    "stats": {
+      "total": "Total",
+      "completed": "Completed",
+      "active": "Active",
+      "complete": "Complete"
+    },
+    "actions": {
+      "clearCompleted": "Clear Completed",
+      "markComplete": "Mark as complete",
+      "markIncomplete": "Mark as incomplete"
+    }
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "addToCart": "Add to Cart",
+    "removeFromCart": "Remove from Cart",
+    "clearCart": "Clear Cart",
+    "checkout": "Proceed to Checkout",
+    "total": "Total",
+    "items": "items",
+    "empty": "Your cart is empty"
+  },
+  "auth": {
+    "login": "Login",
+    "logout": "Logout",
+    "name": "Name",
+    "email": "Email",
+    "welcome": "Welcome back!",
+    "pleaseLogin": "Please log in to continue"
+  },
+  "patterns": {
+    "title": "Architecture Patterns",
+    "microfrontend": "Micro-frontend Architecture",
+    "componentBased": "Component-based Architecture",
+    "provider": "Provider Pattern",
+    "containerPresentation": "Container/Presentational Pattern",
+    "customHooks": "Custom Hooks"
+  },
+  "testing": {
+    "title": "Testing Examples",
+    "unitTests": "Unit Tests",
+    "integrationTests": "Integration Tests",
+    "e2eTests": "End-to-End Tests",
+    "runTests": "Run Tests",
+    "testResults": "Test Results"
+  }
+}
