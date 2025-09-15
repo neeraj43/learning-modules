@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Code, BookOpen, Globe, Zap, Database, Palette, Settings, Users } from "lucide-react"
+import { Code, BookOpen, Globe, Zap, Database, Palette, Settings, Users, Container, Cloud, TestTube } from "lucide-react"
 
 export default function Home() {
   const features = [
@@ -16,9 +16,72 @@ export default function Home() {
     {
       icon: BookOpen,
       title: "React Concepts",
-      description: "Hooks, components, state management, context, and advanced patterns",
+      description: "Hooks, components, state management, context, and patterns",
       href: "/react",
       color: "from-blue-400 to-cyan-500"
+    },
+    {
+      icon: Zap,
+      title: "Advanced React",
+      description: "useRef, useMemo, useCallback, CSS-in-JS, event bubbling, with live editor",
+      href: "/advanced-react",
+      color: "from-purple-600 to-blue-600"
+    },
+    {
+      icon: BookOpen,
+      title: "React Deep Dive Blog",
+      description: "Application lifecycle, performance optimization, build strategies & video resources",
+      href: "/blog",
+      color: "from-emerald-500 to-teal-600"
+    },
+    {
+      icon: Settings,
+      title: "Node.js Development",
+      description: "Server-side JavaScript, APIs, Express.js, file system & package management",
+      href: "/nodejs",
+      color: "from-green-500 to-emerald-600"
+    },
+    {
+      icon: Database,
+      title: "MySQL Database",
+      description: "SQL basics, database design, complex queries & Node.js integration",
+      href: "/mysql",
+      color: "from-blue-500 to-indigo-600"
+    },
+    {
+      icon: Database,
+      title: "PostgreSQL Advanced",
+      description: "Advanced SQL features, JSON operations, window functions & performance tuning",
+      href: "/postgresql",
+      color: "from-indigo-500 to-purple-600"
+    },
+    {
+      icon: Database,
+      title: "MongoDB NoSQL",
+      description: "Document databases, aggregation pipelines, indexing & Node.js integration",
+      href: "/mongodb",
+      color: "from-green-500 to-emerald-600"
+    },
+    {
+      icon: Container,
+      title: "Docker & Containers",
+      description: "Containerization, Dockerfile, Docker Compose & production deployment",
+      href: "/docker",
+      color: "from-blue-500 to-cyan-600"
+    },
+    {
+      icon: Cloud,
+      title: "AWS Cloud Services",
+      description: "EC2, S3, Lambda, RDS, serverless architecture & cloud deployment",
+      href: "/aws",
+      color: "from-orange-500 to-yellow-600"
+    },
+    {
+      icon: TestTube,
+      title: "Testing & QA",
+      description: "Unit, integration, E2E testing, Jest, React Testing Library & best practices",
+      href: "/testing",
+      color: "from-purple-500 to-pink-600"
     },
     {
       icon: Globe,
@@ -28,7 +91,7 @@ export default function Home() {
       color: "from-green-400 to-emerald-500"
     },
     {
-      icon: Zap,
+      icon: Globe,
       title: "Interactive Examples",
       description: "Live demos of concepts with real-world applications",
       href: "/examples",

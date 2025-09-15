@@ -2,10 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  // Static export configuration for Firebase Hosting
-  output: 'export',
-  trailingSlash: true,
-  skipTrailingSlashRedirect: true,
+  // Static export configuration for Firebase Hosting (temporarily disabled for testing)
+  // output: 'export',
+  // trailingSlash: true,
+  // skipTrailingSlashRedirect: true,
   
   experimental: {
     // Enable CSS Modules with custom naming

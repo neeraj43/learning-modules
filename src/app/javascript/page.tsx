@@ -2,8 +2,9 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Play, Code, Copy, Check } from 'lucide-react'
+import { Play, Code, Copy, Check, Terminal } from 'lucide-react'
 import { allJavaScriptExamples } from '@/utils/javascript-examples'
+import { CodeEditor } from '@/components/interactive/CodeEditor'
 
 interface CodeExample {
   title: string
@@ -683,6 +684,57 @@ const dateMatch = dateRegex.exec('2023-12-25');`,
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Master JavaScript from variables to advanced concepts with interactive examples and live demonstrations
           </p>
+        </motion.div>
+
+        {/* Interactive Playground */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-12"
+        >
+          <div className="bg-white rounded-xl shadow-lg border border-gray-200 p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <Terminal className="w-6 h-6 text-blue-600" />
+              <h2 className="text-2xl font-bold text-gray-800">Interactive JavaScript Playground</h2>
+            </div>
+            <p className="text-gray-600 mb-6">
+              Try out JavaScript concepts in real-time! Edit the code below and see instant results.
+            </p>
+            <CodeEditor
+              title="JavaScript Playground"
+              initialCode={`// Welcome to the JavaScript Playground!
+// Try these examples:
+
+// 1. Variables and functions
+const greeting = "Hello, World!"
+console.log(greeting)
+
+// 2. Array methods
+const numbers = [1, 2, 3, 4, 5]
+const doubled = numbers.map(n => n * 2)
+console.log('Doubled:', doubled)
+
+// 3. Object destructuring
+const person = { name: 'Alice', age: 30, city: 'New York' }
+const { name, age } = person
+console.log(\`\${name} is \${age} years old\`)
+
+// 4. Async example (simulated)
+const fetchData = async () => {
+  return new Promise(resolve => {
+    setTimeout(() => resolve('Data loaded!'), 1000)
+  })
+}
+
+// Try uncommenting this:
+// fetchData().then(console.log)
+
+// Add your own code below:
+`}
+              height="300px"
+            />
+          </div>
         </motion.div>
 
         <div className="flex flex-col lg:flex-row gap-8">
