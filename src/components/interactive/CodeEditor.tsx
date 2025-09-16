@@ -49,16 +49,196 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
         ).join(' '))
       }
 
-      // Create a function to execute the code safely
-      const executeFunction = new Function(`
-        try {
-          ${code}
-        } catch (e) {
-          throw e;
+      // Check if this is test code or Node.js code
+      const isTestCode = /\b(describe|test|it|expect|beforeEach|beforeAll|afterEach|afterAll)\s*\(/.test(code)
+      const isNodeCode = /\b(require|module\.exports|exports\.|__dirname|__filename|process\.)\s*/.test(code)
+      
+      if (isTestCode || isNodeCode) {
+        // Provide mock testing functions for demonstration
+        const testResults: string[] = []
+        
+        // Mock Node.js and testing environment
+        const mockNodeModules: Record<string, any> = {
+          'next/jest': () => ({
+            dir: './',
+            createJestConfig: (config: any) => config
+          }),
+          '@testing-library/jest-dom': {},
+          '@testing-library/react': {
+            render: () => ({ getByText: () => ({}), getByRole: () => ({}) }),
+            screen: { getByText: () => ({}), getByRole: () => ({}) },
+            fireEvent: { click: () => ({}), change: () => ({}) }
+          },
+          'jest-environment-jsdom': 'jsdom',
+          'path': {
+            join: (...args: string[]) => args.join('/'),
+            resolve: (...args: string[]) => '/' + args.join('/')
+          },
+          'fs': {
+            readFileSync: () => 'mock file content',
+            writeFileSync: () => {},
+            existsSync: () => true
+          }
         }
-      `)
 
-      executeFunction()
+        const mockJest = {
+          describe: (name: string, fn: () => void) => {
+            testResults.push(`📁 Test Suite: ${name}`)
+            try {
+              fn()
+            } catch (e) {
+              testResults.push(`  ❌ Suite failed: ${e}`)
+            }
+          },
+          test: (name: string, fn: () => void | Promise<void>) => {
+            try {
+              const result = fn()
+              if (result instanceof Promise) {
+                testResults.push(`  ⏳ ${name} (async test - simulated)`)
+              } else {
+                testResults.push(`  ✅ ${name}`)
+              }
+            } catch (e) {
+              testResults.push(`  ❌ ${name} - ${e}`)
+            }
+          },
+          it: (name: string, fn: () => void | Promise<void>) => {
+            try {
+              const result = fn()
+              if (result instanceof Promise) {
+                testResults.push(`  ⏳ ${name} (async test - simulated)`)
+              } else {
+                testResults.push(`  ✅ ${name}`)
+              }
+            } catch (e) {
+              testResults.push(`  ❌ ${name} - ${e}`)
+            }
+          },
+          expect: (actual: any) => ({
+            toBe: (expected: any) => {
+              if (actual === expected) {
+                testResults.push(`    ✓ Expected ${actual} to be ${expected}`)
+              } else {
+                throw new Error(`Expected ${actual} to be ${expected}`)
+              }
+            },
+            toEqual: (expected: any) => {
+              if (JSON.stringify(actual) === JSON.stringify(expected)) {
+                testResults.push(`    ✓ Expected ${JSON.stringify(actual)} to equal ${JSON.stringify(expected)}`)
+              } else {
+                throw new Error(`Expected ${JSON.stringify(actual)} to equal ${JSON.stringify(expected)}`)
+              }
+            },
+            toHaveBeenCalled: () => {
+              testResults.push(`    ✓ Mock function was called`)
+            },
+            toHaveBeenCalledWith: (...args: any[]) => {
+              testResults.push(`    ✓ Mock function was called with ${JSON.stringify(args)}`)
+            },
+            not: {
+              toHaveBeenCalled: () => {
+                testResults.push(`    ✓ Mock function was not called`)
+              }
+            }
+          }),
+          beforeEach: (fn: () => void) => {
+            testResults.push(`  🔄 Setup: beforeEach`)
+            try {
+              fn()
+            } catch (e) {
+              testResults.push(`  ❌ beforeEach failed: ${e}`)
+            }
+          },
+          jest: {
+            fn: () => ({
+              mockReturnValue: (value: any) => ({ returnValue: value }),
+              mockResolvedValue: (value: any) => ({ resolvedValue: value })
+            })
+          }
+        }
+
+        // Mock Node.js globals
+        const mockNodeGlobals = {
+          require: (moduleName: string) => {
+            testResults.push(`📦 Required module: ${moduleName}`)
+            return mockNodeModules[moduleName] || { 
+              default: {},
+              createJestConfig: (config: any) => config
+            }
+          },
+          module: {
+            exports: {}
+          },
+          exports: {},
+          __dirname: '/mock/directory',
+          __filename: '/mock/directory/file.js',
+          process: {
+            cwd: () => '/mock/project',
+            env: { NODE_ENV: 'test' }
+          },
+          global: typeof window !== 'undefined' ? window : {}
+        }
+
+        // Create a function to execute the test/Node.js code safely
+        const executeFunction = new Function(
+          'describe', 'test', 'it', 'expect', 'beforeEach', 'beforeAll', 'afterEach', 'afterAll', 'jest',
+          'require', 'module', 'exports', '__dirname', '__filename', 'process', 'global',
+          `
+          try {
+            ${code}
+          } catch (e) {
+            throw e;
+          }
+        `)
+
+        executeFunction(
+          mockJest.describe, 
+          mockJest.test, 
+          mockJest.it, 
+          mockJest.expect, 
+          mockJest.beforeEach, 
+          mockJest.beforeEach, // beforeAll
+          mockJest.beforeEach, // afterEach
+          mockJest.beforeEach, // afterAll
+          mockJest.jest,
+          // Node.js globals
+          mockNodeGlobals.require,
+          mockNodeGlobals.module,
+          mockNodeGlobals.exports,
+          mockNodeGlobals.__dirname,
+          mockNodeGlobals.__filename,
+          mockNodeGlobals.process,
+          mockNodeGlobals.global
+        )
+        
+        // Show test/Node.js results
+        if (testResults.length > 0) {
+          if (isTestCode) {
+            logs.push('🧪 TEST EXECUTION SIMULATION:')
+            logs.push(...testResults)
+            logs.push('')
+            logs.push('Note: This is a simulation of test execution for learning purposes.')
+            logs.push('In a real environment, use Jest, Vitest, or similar testing frameworks.')
+          } else {
+            logs.push('📦 NODE.JS CODE SIMULATION:')
+            logs.push(...testResults)
+            logs.push('')
+            logs.push('Note: This is a simulation of Node.js environment for learning purposes.')
+            logs.push('In a real environment, run this code with Node.js runtime.')
+          }
+        }
+      } else {
+        // Regular code execution
+        const executeFunction = new Function(`
+          try {
+            ${code}
+          } catch (e) {
+            throw e;
+          }
+        `)
+
+        executeFunction()
+      }
       
       // Restore original console.log
       console.log = originalConsoleLog
@@ -162,16 +342,16 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
           value={code}
           onChange={(e) => setCode(e.target.value)}
           onKeyDown={handleKeyDown}
-          className="w-full bg-gray-900 text-gray-100 p-4 font-mono text-sm leading-relaxed resize-none focus:outline-none"
+          className="w-full bg-gray-900 text-gray-100 pt-4 pr-4 pb-4 pl-16 font-mono text-sm leading-relaxed resize-none focus:outline-none"
           style={{ minHeight: height }}
           placeholder="// Write your code here...&#10;// Press Ctrl/Cmd + Enter to run&#10;// Press Tab for indentation"
           spellCheck={false}
         />
         
         {/* Line numbers */}
-        <div className="absolute left-0 top-0 pt-4 px-2 text-gray-500 text-sm font-mono leading-relaxed pointer-events-none select-none">
+        <div className="absolute left-0 top-0 pt-4 pl-3 pr-2 text-gray-500 text-sm font-mono leading-relaxed pointer-events-none select-none">
           {code.split('\n').map((_, index) => (
-            <div key={index} className="text-right pr-2" style={{ minWidth: '30px' }}>
+            <div key={index} className="text-right" style={{ minWidth: '45px' }}>
               {index + 1}
             </div>
           ))}

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FirebaseAnalytics from "@/components/FirebaseAnalytics";
+import DevToolsHandler from "@/components/DevToolsHandler";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >
+        <DevToolsHandler />
         <Header />
         <main className="flex-1">
           {children}
