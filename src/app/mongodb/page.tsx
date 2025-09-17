@@ -10,6 +10,9 @@ const MongoDBPage = () => {
 
   const sections = [
     { id: 'basics', name: 'MongoDB Basics', icon: '🍃' },
+    { id: 'reallife', name: 'Real-Life Examples', icon: '💼' },
+    { id: 'social', name: 'Social Media App', icon: '📱' },
+    { id: 'ecommerce', name: 'E-Commerce Store', icon: '🛍️' },
     { id: 'queries', name: 'Advanced Queries', icon: '🔍' },
     { id: 'aggregation', name: 'Aggregation Pipeline', icon: '📊' },
     { id: 'indexing', name: 'Indexing & Performance', icon: '⚡' },
@@ -1268,6 +1271,75 @@ export {
 
 // Run demonstration
 demonstrateMongoDBFeatures();`
+      }
+    ],
+    reallife: [
+      {
+        title: 'Blog Management System',
+        description: 'Complete blog system with posts, comments, and user management',
+        code: `// Real-Life Example: Blog Management System
+
+// 1. BLOG POST SCHEMA - Insert sample blog posts
+db.posts.insertMany([
+  {
+    title: "Getting Started with MongoDB",
+    content: "MongoDB is a NoSQL database that stores data in flexible, JSON-like documents...",
+    author: {
+      name: "John Developer",
+      email: "john@example.com",
+      bio: "Full-stack developer passionate about databases"
+    },
+    tags: ["mongodb", "nosql", "database", "tutorial"],
+    category: "Technology",
+    publishedAt: new Date("2024-01-15"),
+    status: "published",
+    views: 1250,
+    likes: 89,
+    comments: [
+      {
+        author: "Alice Reader",
+        content: "Great tutorial! Very helpful for beginners.",
+        createdAt: new Date("2024-01-16"),
+        likes: 12
+      }
+    ],
+    meta: {
+      readTime: 8,
+      wordCount: 1200,
+      difficulty: "beginner"
+    }
+  }
+]);
+
+// 2. COMMON BLOG QUERIES
+console.log("=== Blog Management Queries ===");
+
+// Find all published posts
+const publishedPosts = db.posts.find({ status: "published" });
+console.log("Published posts:", publishedPosts.count());
+
+// Search posts by tag
+const jsPosts = db.posts.find({ 
+  tags: "mongodb",
+  status: "published" 
+});
+console.log("MongoDB posts:", jsPosts.count());
+
+// Find popular posts (>1000 views)
+const popularPosts = db.posts.find({ 
+  views: { $gt: 1000 }
+}).sort({ views: -1 });
+
+// Most popular tags
+const popularTags = db.posts.aggregate([
+  { $unwind: "$tags" },
+  { $group: { _id: "$tags", count: { $sum: 1 } } },
+  { $sort: { count: -1 } },
+  { $limit: 5 }
+]);
+console.log("Popular tags:", popularTags.toArray());
+
+console.log("✅ Blog system demo complete!");`
       }
     ]
   }

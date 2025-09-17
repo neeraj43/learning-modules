@@ -58,10 +58,10 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
         const testResults: string[] = []
         
         // Mock Node.js and testing environment
-        const mockNodeModules: Record<string, any> = {
+        const mockNodeModules: Record<string, unknown> = {
           'next/jest': () => ({
             dir: './',
-            createJestConfig: (config: any) => config
+            createJestConfig: (config: unknown) => config
           }),
           '@testing-library/jest-dom': {},
           '@testing-library/react': {
@@ -114,15 +114,15 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
               testResults.push(`  ❌ ${name} - ${e}`)
             }
           },
-          expect: (actual: any) => ({
-            toBe: (expected: any) => {
+          expect: (actual: unknown) => ({
+            toBe: (expected: unknown) => {
               if (actual === expected) {
                 testResults.push(`    ✓ Expected ${actual} to be ${expected}`)
               } else {
                 throw new Error(`Expected ${actual} to be ${expected}`)
               }
             },
-            toEqual: (expected: any) => {
+            toEqual: (expected: unknown) => {
               if (JSON.stringify(actual) === JSON.stringify(expected)) {
                 testResults.push(`    ✓ Expected ${JSON.stringify(actual)} to equal ${JSON.stringify(expected)}`)
               } else {
@@ -132,7 +132,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
             toHaveBeenCalled: () => {
               testResults.push(`    ✓ Mock function was called`)
             },
-            toHaveBeenCalledWith: (...args: any[]) => {
+            toHaveBeenCalledWith: (...args: unknown[]) => {
               testResults.push(`    ✓ Mock function was called with ${JSON.stringify(args)}`)
             },
             not: {
@@ -151,8 +151,8 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
           },
           jest: {
             fn: () => ({
-              mockReturnValue: (value: any) => ({ returnValue: value }),
-              mockResolvedValue: (value: any) => ({ resolvedValue: value })
+              mockReturnValue: (value: unknown) => ({ returnValue: value }),
+              mockResolvedValue: (value: unknown) => ({ resolvedValue: value })
             })
           }
         }
@@ -163,7 +163,7 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
             testResults.push(`📦 Required module: ${moduleName}`)
             return mockNodeModules[moduleName] || { 
               default: {},
-              createJestConfig: (config: any) => config
+              createJestConfig: (config: unknown) => config
             }
           },
           module: {

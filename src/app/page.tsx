@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Code, BookOpen, Globe, Zap, Database, Palette, Settings, Users, Container, Cloud, TestTube } from "lucide-react"
+import { Code, BookOpen, Globe, Zap, Database, Palette, Settings, Users, Container, Cloud, TestTube, Coffee } from "lucide-react"
 
 export default function Home() {
   const features = [
@@ -40,6 +40,13 @@ export default function Home() {
       description: "Server-side JavaScript, APIs, Express.js, file system & package management",
       href: "/nodejs",
       color: "from-green-500 to-emerald-600"
+    },
+    {
+      icon: Coffee,
+      title: "Java Programming",
+      description: "Object-oriented programming, Spring Framework, collections & enterprise development",
+      href: "/java",
+      color: "from-orange-500 to-red-600"
     },
     {
       icon: Database,

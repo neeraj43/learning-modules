@@ -9,7 +9,7 @@ const DevToolsHandler = () => {
     const originalConsoleError = console.error
 
     const suppressProfilerWarnings = (originalMethod: typeof console.warn) => {
-      return (...args: any[]) => {
+      return (...args: unknown[]) => {
         const message = args[0]
         if (typeof message === 'string') {
           // Suppress specific React DevTools profiling warnings
@@ -53,7 +53,7 @@ const DevToolsHandler = () => {
       // Check if React DevTools is present
       const isReactDevToolsPresent = !!(
         window.__REACT_DEVTOOLS_GLOBAL_HOOK__ || 
-        (window as any).__REACT_DEVTOOLS_GLOBAL_HOOK__
+        (window as Record<string, unknown>).__REACT_DEVTOOLS_GLOBAL_HOOK__
       )
 
       if (isReactDevToolsPresent) {

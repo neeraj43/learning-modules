@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { Menu, X, Code, Book, Globe, ChevronDown, Database, Server, Cloud, TestTube, Container } from 'lucide-react'
+import { Menu, X, Code, Book, Globe, ChevronDown, Database, Server, Cloud, TestTube, Container, Coffee } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const Header = () => {
@@ -52,6 +52,13 @@ const Header = () => {
       icon: Code,
       dropdown: [
         { href: '/python', label: 'Python Complete Guide' }
+      ]
+    },
+    {
+      label: 'Java',
+      icon: Coffee,
+      dropdown: [
+        { href: '/java', label: 'Java Programming Complete Guide' }
       ]
     },
     {

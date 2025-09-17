@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FirebaseAnalytics from "@/components/FirebaseAnalytics";
 import DevToolsHandler from "@/components/DevToolsHandler";
+import FAQChatBot from "@/components/interactive/FAQChatBot";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <FirebaseAnalytics />
+        <FAQChatBot />
       </body>
     </html>
   );
