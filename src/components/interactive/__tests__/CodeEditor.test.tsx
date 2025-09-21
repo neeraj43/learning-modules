@@ -164,15 +164,6 @@ describe('CodeEditor Component', () => {
     })
   })
 
-  it('displays line numbers', () => {
-    const multiLineCode = 'console.log("line 1")\nconsole.log("line 2")\nconsole.log("line 3")'
-    render(<CodeEditor initialCode={multiLineCode} />)
-    
-    // Line numbers should be displayed
-    expect(screen.getByText('1')).toBeInTheDocument()
-    expect(screen.getByText('2')).toBeInTheDocument()
-    expect(screen.getByText('3')).toBeInTheDocument()
-  })
 
   it('hides output section when showOutput is false', () => {
     render(<CodeEditor showOutput={false} />)

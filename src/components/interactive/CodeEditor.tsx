@@ -342,20 +342,11 @@ export const CodeEditor: React.FC<CodeEditorProps> = ({
           value={code}
           onChange={(e) => setCode(e.target.value)}
           onKeyDown={handleKeyDown}
-          className="w-full bg-gray-900 text-gray-100 pt-4 pr-4 pb-4 pl-16 font-mono text-sm leading-relaxed resize-none focus:outline-none"
+          className="w-full bg-gray-900 text-gray-100 p-4 font-mono text-sm leading-relaxed resize-none focus:outline-none"
           style={{ minHeight: height }}
           placeholder="// Write your code here...&#10;// Press Ctrl/Cmd + Enter to run&#10;// Press Tab for indentation"
           spellCheck={false}
         />
-        
-        {/* Line numbers */}
-        <div className="absolute left-0 top-0 pt-4 pl-3 pr-2 text-gray-500 text-sm font-mono leading-relaxed pointer-events-none select-none">
-          {code.split('\n').map((_, index) => (
-            <div key={index} className="text-right" style={{ minWidth: '45px' }}>
-              {index + 1}
-            </div>
-          ))}
-        </div>
       </div>
 
       {/* Output Section */}

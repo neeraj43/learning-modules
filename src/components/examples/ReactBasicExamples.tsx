@@ -298,9 +298,9 @@ export const ListExamples = () => {
             className="flex items-center justify-between p-3 bg-gray-50 rounded border"
           >
             <div>
-              <span className="font-medium">{item.name}</span>
-              <span className="text-sm text-gray-500 ml-2">({item.category})</span>
-              <span className="text-sm text-green-600 ml-2">${item.price.toFixed(2)}</span>
+              <span className="font-medium text-gray-900">{item.name}</span>
+              <span className="text-sm text-gray-800 ml-2 font-medium">({item.category})</span>
+              <span className="text-sm text-green-700 ml-2 font-semibold">${item.price.toFixed(2)}</span>
             </div>
             <button
               onClick={() => removeItem(item.id)}
@@ -313,7 +313,7 @@ export const ListExamples = () => {
       </div>
       
       {filteredItems.length === 0 && (
-        <p className="text-gray-500 text-center py-4">No items found</p>
+        <p className="text-gray-900 text-center py-4 font-medium">No items found</p>
       )}
     </div>
   )

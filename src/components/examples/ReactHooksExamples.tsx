@@ -176,7 +176,7 @@ export const UseEffectExamples = () => {
   useEffect(() => {
     document.title = `Timer: ${seconds}s`
     return () => {
-      document.title = 'Comprehensive Web App'
+      document.title = 'Complete Developer Learning Hub'
     }
   }, [seconds])
 
@@ -236,7 +236,7 @@ export const UseEffectExamples = () => {
         <div>
           <h4 className="font-medium mb-2">Window Resize Listener</h4>
           <p className="text-gray-600">Current window width: <span className="font-semibold">{windowWidth}px</span></p>
-          <p className="text-sm text-gray-500">Resize your browser window to see the effect!</p>
+          <p className="text-sm text-gray-700">Resize your browser window to see the effect!</p>
         </div>
 
         {/* Data fetching */}

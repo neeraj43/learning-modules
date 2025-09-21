@@ -23,11 +23,11 @@ const Footer = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h3 className="text-xl font-bold mb-4">Comprehensive Web App</h3>
+              <h3 className="text-xl font-bold mb-4">Complete Developer Learning Hub</h3>
               <p className="text-gray-300 mb-4">
-                A complete demonstration of JavaScript, React, and Next.js concepts 
-                from A to Z. This project showcases modern web development practices, 
-                patterns, and best practices.
+                A comprehensive learning platform covering programming languages, data structures, 
+                web frameworks, databases, and cloud technologies. Master coding through interactive 
+                examples, real-world projects, and beginner-friendly explanations.
               </p>
               <div className="flex space-x-4">
                 {socialLinks.map((social) => (
@@ -87,7 +87,7 @@ const Footer = () => {
               Made with <Heart className="w-4 h-4 mx-1 text-red-500" /> for learning
             </motion.p>
             <p className="text-gray-300 mt-2 md:mt-0">
-              © {currentYear} ComprehensiveWebApp. All rights reserved.
+              © {currentYear} Complete Developer Learning Hub. All rights reserved.
             </p>
           </div>
         </div>

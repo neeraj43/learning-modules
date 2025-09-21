@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Comprehensive Web App - JavaScript, React & Next.js",
-  description: "A complete demonstration of modern web development concepts from A to Z",
+  title: "Complete Developer Learning Hub - Programming, Data Structures & Web Technologies",
+  description: "Learn programming languages (JavaScript, Python, Java, C++), data structures, web frameworks (React, Next.js), databases, cloud technologies, and more with interactive examples and real-world projects.",
 };
 
 export default function RootLayout({

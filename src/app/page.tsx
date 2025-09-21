@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Code, BookOpen, Globe, Zap, Database, Palette, Settings, Users, Container, Cloud, TestTube, Coffee } from "lucide-react"
+import { Code, BookOpen, Globe, Zap, Database, Palette, Settings, Users, Container, Cloud, TestTube, Coffee, Code2 } from "lucide-react"
 
 export default function Home() {
   const features = [
@@ -47,6 +47,13 @@ export default function Home() {
       description: "Object-oriented programming, Spring Framework, collections & enterprise development",
       href: "/java",
       color: "from-orange-500 to-red-600"
+    },
+    {
+      icon: Code2,
+      title: "C++ & Data Structures",
+      description: "Memory management, pointers, arrays, linked lists, trees, hash tables & algorithms",
+      href: "/cpp",
+      color: "from-blue-600 to-indigo-700"
     },
     {
       icon: Database,
@@ -146,6 +153,16 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative py-20 px-4">
         <div className="max-w-7xl mx-auto text-center">
+          {/* Temporary Update Notice */}
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6 bg-green-100 border-2 border-green-400 text-green-800 px-6 py-4 rounded-lg text-center font-medium shadow-lg"
+          >
+            ✅ <strong>UI IMPROVEMENTS APPLIED!</strong> Enhanced text contrast & support button now visible with pulsing animation! 🎉
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -153,18 +170,49 @@ export default function Home() {
             className="mb-8"
           >
             <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent mb-6">
-              Comprehensive Web App
+              Complete Developer Learning Hub
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Master JavaScript, React, and Next.js with interactive examples and real-world applications. 
-              From basics to advanced concepts, everything you need in one place.
+              Master programming languages, data structures, frameworks, and cloud technologies with interactive examples and real-world projects. 
+              From JavaScript to C++, from React to databases - your complete coding education in one place.
             </p>
+          </motion.div>
+
+          {/* Key Learning Areas */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="mb-12"
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+              <div className="bg-yellow-100 rounded-lg p-4 text-center">
+                <div className="text-2xl mb-2">🌐</div>
+                <div className="font-semibold text-yellow-800">Frontend</div>
+                <div className="text-xs text-yellow-600">JS, React, Next.js</div>
+              </div>
+              <div className="bg-green-100 rounded-lg p-4 text-center">
+                <div className="text-2xl mb-2">🔧</div>
+                <div className="font-semibold text-green-800">Backend</div>
+                <div className="text-xs text-green-600">Node.js, Python, Java</div>
+              </div>
+              <div className="bg-blue-100 rounded-lg p-4 text-center">
+                <div className="text-2xl mb-2">💾</div>
+                <div className="font-semibold text-blue-800">Data</div>
+                <div className="text-xs text-blue-600">C++, Algorithms, DBs</div>
+              </div>
+              <div className="bg-purple-100 rounded-lg p-4 text-center">
+                <div className="text-2xl mb-2">☁️</div>
+                <div className="font-semibold text-purple-800">DevOps</div>
+                <div className="text-xs text-purple-600">Docker, AWS, Testing</div>
+              </div>
+            </div>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
             <Link

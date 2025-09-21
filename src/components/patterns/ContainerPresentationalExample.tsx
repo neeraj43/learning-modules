@@ -73,7 +73,7 @@ const UserCard = ({ user, onEdit, onDelete }: {
       <div className="text-3xl">{user.avatar}</div>
       <div className="flex-1">
         <h3 className="font-medium text-gray-900">{user.name}</h3>
-        <p className="text-sm text-gray-500">{user.email}</p>
+        <p className="text-sm text-gray-600">{user.email}</p>
         <p className="text-sm text-gray-600">{user.role}</p>
       </div>
       <div className={`w-3 h-3 rounded-full ${user.active ? 'bg-green-500' : 'bg-gray-400'}`} />
@@ -193,8 +193,8 @@ const UserList = ({
   if (loading) return <LoadingSpinner message="Loading users..." />
   if (error) return <ErrorMessage message={error} onRetry={onRetry} />
   if (users.length === 0) return (
-    <div className="text-center py-8 text-gray-500">
-      <Users className="w-12 h-12 mx-auto mb-3 opacity-50" />
+    <div className="text-center py-8 text-gray-700">
+      <Users className="w-12 h-12 mx-auto mb-3 opacity-60" />
       <p>No users found</p>
     </div>
   )
@@ -480,7 +480,7 @@ const UserCard = ({ user, onEdit, onDelete }: {
       <div className="text-3xl">{user.avatar}</div>
       <div className="flex-1">
         <h3 className="font-medium">{user.name}</h3>
-        <p className="text-sm text-gray-500">{user.email}</p>
+        <p className="text-sm text-gray-600">{user.email}</p>
         <p className="text-sm text-gray-600">{user.role}</p>
       </div>
     </div>

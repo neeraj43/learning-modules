@@ -59,7 +59,7 @@ const UserCard = ({
         <Avatar src={user.avatar} alt={user.name} />
         <div>
           <h3 className="font-medium text-gray-900">{user.name}</h3>
-          <p className="text-sm text-gray-500">{user.role}</p>
+          <p className="text-sm text-gray-600">{user.role}</p>
         </div>
         <Badge variant={statusVariants[user.status]}>
           {user.status}
@@ -103,7 +103,7 @@ const ProductCard = ({
               />
             ))}
           </div>
-          <span className="text-sm text-gray-500">({product.reviews})</span>
+          <span className="text-sm text-gray-600">({product.reviews})</span>
         </div>
         <div className="flex items-center justify-between">
           <span className="text-lg font-bold text-gray-900">${product.price}</span>
@@ -300,7 +300,7 @@ const UserCard = ({ user, showActions = true }: UserCardProps) => {
         <Avatar src={user.avatar} alt={user.name} />
         <div>
           <h3 className="font-medium text-gray-900">{user.name}</h3>
-          <p className="text-sm text-gray-500">{user.role}</p>
+          <p className="text-sm text-gray-600">{user.role}</p>
         </div>
         <Badge variant={statusVariants[user.status]}>
           {user.status}
