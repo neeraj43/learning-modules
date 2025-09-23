@@ -304,7 +304,7 @@ Original error: ${error}`
             ) : (
               <div className="text-gray-500 text-sm flex items-center gap-2">
                 <Info className="w-4 h-4" />
-                Click "Run Code" to see the output here
+                Click &quot;Run Code&quot; to see the output here
               </div>
             )}
           </div>

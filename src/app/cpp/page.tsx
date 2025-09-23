@@ -75,6 +75,7 @@ dynamicArray.push_back(2);  // Size grows automatically!`,
         { id: 'arrays', name: 'Arrays & Vectors', icon: '📊' },
         { id: 'linked-lists', name: 'Linked Lists', icon: '🔗' },
         { id: 'stacks-queues', name: 'Stacks & Queues', icon: '📚' },
+        { id: 'stl', name: 'STL Data Structures', icon: '🛠️' },
         { id: 'trees', name: 'Trees & BST', icon: '🌳' },
         { id: 'hash-tables', name: 'Hash Tables', icon: '🗂️' },
         { id: 'algorithms', name: 'Algorithms', icon: '⚡' },
@@ -1971,6 +1972,1776 @@ int main() {
     cout << "Time: O(n) - visit each node once" << endl;
     cout << "Space: O(w) - where w is max width of tree" << endl;
     cout << "Queue size never exceeds the maximum width!" << endl;
+    
+    return 0;
+}`
+            }
+        ],
+        stl: [
+            {
+                title: 'STL Overview - Standard Template Library',
+                description: '🛠️ Complete guide to C++ STL containers and their built-in functions for efficient data structure operations!',
+                code: `// 🛠️ C++ STL (Standard Template Library) Overview
+// The STL provides powerful, ready-to-use data structures and algorithms
+
+#include <iostream>
+#include <vector>       // Dynamic array
+#include <list>         // Doubly linked list  
+#include <deque>        // Double-ended queue
+#include <stack>        // LIFO container adapter
+#include <queue>        // FIFO container adapter
+#include <priority_queue>  // Heap-based priority queue
+#include <set>          // Sorted unique elements
+#include <map>          // Key-value pairs (sorted)
+#include <unordered_set>   // Hash-based unique elements
+#include <unordered_map>   // Hash-based key-value pairs
+#include <array>        // Fixed-size array
+#include <string>       // String container
+#include <algorithm>    // STL algorithms
+using namespace std;
+
+int main() {
+    cout << "=== 🛠️ STL DATA STRUCTURES OVERVIEW ===" << endl;
+    cout << "The Standard Template Library provides efficient, tested data structures!" << endl << endl;
+    
+    // 1. SEQUENCE CONTAINERS (Linear data structures)
+    cout << "📊 SEQUENCE CONTAINERS:" << endl;
+    cout << "  vector    - Dynamic array (most commonly used)" << endl;
+    cout << "  list      - Doubly linked list" << endl;
+    cout << "  deque     - Double-ended queue" << endl;
+    cout << "  array     - Fixed-size array wrapper" << endl;
+    cout << "  string    - Specialized character container" << endl << endl;
+    
+    // 2. ASSOCIATIVE CONTAINERS (Sorted collections)
+    cout << "🗂️ ASSOCIATIVE CONTAINERS (Automatically sorted):" << endl;
+    cout << "  set       - Unique elements (like mathematical set)" << endl;
+    cout << "  multiset  - Allows duplicate elements" << endl;
+    cout << "  map       - Key-value pairs (dictionary)" << endl;
+    cout << "  multimap  - Allows duplicate keys" << endl << endl;
+    
+    // 3. UNORDERED CONTAINERS (Hash-based for O(1) operations)
+    cout << "⚡ UNORDERED CONTAINERS (Hash tables - super fast!):" << endl;
+    cout << "  unordered_set     - Hash set" << endl;
+    cout << "  unordered_multiset - Hash set with duplicates" << endl;
+    cout << "  unordered_map     - Hash map (dictionary)" << endl;
+    cout << "  unordered_multimap - Hash map with duplicate keys" << endl << endl;
+    
+    // 4. CONTAINER ADAPTERS (Built on top of other containers)
+    cout << "🔧 CONTAINER ADAPTERS:" << endl;
+    cout << "  stack          - LIFO (Last In, First Out)" << endl;
+    cout << "  queue          - FIFO (First In, First Out)" << endl;
+    cout << "  priority_queue - Heap-based priority queue" << endl << endl;
+    
+    // 5. WHY USE STL?
+    cout << "🌟 WHY USE STL?" << endl;
+    cout << "✅ Pre-tested and optimized implementations" << endl;
+    cout << "✅ Consistent interface across containers" << endl;
+    cout << "✅ Template-based (works with any data type)" << endl;
+    cout << "✅ Powerful algorithms (sort, search, etc.)" << endl;
+    cout << "✅ Industry standard - used everywhere!" << endl;
+    cout << "✅ Saves development time and reduces bugs" << endl << endl;
+    
+    // Quick demonstration of common operations
+    cout << "🚀 QUICK DEMO - Common Operations:" << endl;
+    
+    vector<int> numbers = {1, 2, 3, 4, 5};
+    cout << "Vector: ";
+    for (int n : numbers) cout << n << " ";
+    cout << "| Size: " << numbers.size() << endl;
+    
+    set<string> uniqueWords = {"hello", "world", "STL", "amazing"};
+    cout << "Set: ";
+    for (const string& word : uniqueWords) cout << word << " ";
+    cout << "| Size: " << uniqueWords.size() << endl;
+    
+    map<string, int> grades = {{"Alice", 95}, {"Bob", 87}, {"Charlie", 92}};
+    cout << "Map: ";
+    for (const auto& pair : grades) cout << pair.first << ":" << pair.second << " ";
+    cout << "| Size: " << grades.size() << endl;
+    
+    cout << "\\n🎯 Ready to explore each container in detail!" << endl;
+    
+    return 0;
+}`
+            },
+            {
+                title: 'Vector - Dynamic Array Mastery',
+                description: '📊 Master std::vector - the most important STL container with all essential operations!',
+                code: `// 📊 std::vector - Complete Guide with All Operations
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    cout << "=== 📊 VECTOR COMPLETE GUIDE ===" << endl;
+    cout << "Vector = Dynamic array that can grow and shrink automatically\\n" << endl;
+    
+    // 1. CREATING VECTORS
+    cout << "1️⃣ CREATING VECTORS:" << endl;
+    vector<int> empty_vec;                     // Empty vector
+    vector<int> sized_vec(5);                  // 5 elements, all 0
+    vector<int> init_vec(5, 10);              // 5 elements, all 10
+    vector<int> list_vec = {1, 2, 3, 4, 5};   // Initializer list
+    vector<int> copy_vec(list_vec);            // Copy constructor
+    
+    cout << "Created vectors with different initialization methods" << endl;
+    cout << "list_vec: ";
+    for (int x : list_vec) cout << x << " ";
+    cout << "\\n" << endl;
+    
+    // 2. BASIC OPERATIONS
+    cout << "2️⃣ BASIC OPERATIONS:" << endl;
+    vector<string> fruits = {"apple", "banana"};
+    
+    // Adding elements
+    fruits.push_back("orange");               // Add to end
+    fruits.emplace_back("grape");             // Construct in place (more efficient)
+    fruits.insert(fruits.begin() + 1, "mango"); // Insert at position
+    
+    cout << "After adding elements: ";
+    for (const string& fruit : fruits) cout << fruit << " ";
+    cout << endl;
+    
+    // Accessing elements
+    cout << "First fruit: " << fruits[0] << " (using [])" << endl;
+    cout << "Last fruit: " << fruits.at(fruits.size()-1) << " (using at())" << endl;
+    cout << "Front: " << fruits.front() << ", Back: " << fruits.back() << endl;
+    
+    // Size and capacity
+    cout << "Size: " << fruits.size() << ", Capacity: " << fruits.capacity() << endl;
+    cout << "Empty? " << (fruits.empty() ? "Yes" : "No") << endl << endl;
+    
+    // 3. MODIFYING OPERATIONS
+    cout << "3️⃣ MODIFYING OPERATIONS:" << endl;
+    vector<int> numbers = {10, 20, 30, 40, 50};
+    
+    cout << "Original: ";
+    for (int n : numbers) cout << n << " ";
+    cout << endl;
+    
+    // Remove elements
+    numbers.pop_back();                        // Remove last element
+    numbers.erase(numbers.begin() + 1);        // Remove element at index 1
+    numbers.erase(numbers.begin(), numbers.begin() + 2); // Remove range
+    
+    cout << "After removals: ";
+    for (int n : numbers) cout << n << " ";
+    cout << endl;
+    
+    // Clear and assign
+    numbers.clear();                           // Remove all elements
+    numbers.assign(4, 100);                    // Assign 4 elements with value 100
+    cout << "After assign(4, 100): ";
+    for (int n : numbers) cout << n << " ";
+    cout << "\\n" << endl;
+    
+    // 4. ITERATORS AND ALGORITHMS
+    cout << "4️⃣ ITERATORS AND ALGORITHMS:" << endl;
+    vector<int> data = {64, 34, 25, 12, 22, 11, 90};
+    
+    cout << "Original data: ";
+    for (int x : data) cout << x << " ";
+    cout << endl;
+    
+    // Sorting
+    sort(data.begin(), data.end());
+    cout << "After sort(): ";
+    for (int x : data) cout << x << " ";
+    cout << endl;
+    
+    // Searching
+    auto it = find(data.begin(), data.end(), 25);
+    if (it != data.end()) {
+        cout << "Found 25 at position: " << (it - data.begin()) << endl;
+    }
+    
+    // Binary search (requires sorted data)
+    bool found = binary_search(data.begin(), data.end(), 34);
+    cout << "Binary search for 34: " << (found ? "Found" : "Not found") << endl;
+    
+    // Min and max elements
+    auto min_it = min_element(data.begin(), data.end());
+    auto max_it = max_element(data.begin(), data.end());
+    cout << "Min: " << *min_it << ", Max: " << *max_it << endl << endl;
+    
+    // 5. ADVANCED OPERATIONS
+    cout << "5️⃣ ADVANCED OPERATIONS:" << endl;
+    vector<int> vec1 = {1, 3, 5, 7, 9};
+    vector<int> vec2 = {2, 4, 6, 8, 10};
+    
+    // Reverse
+    reverse(vec1.begin(), vec1.end());
+    cout << "Reversed vec1: ";
+    for (int x : vec1) cout << x << " ";
+    cout << endl;
+    
+    // Merge sorted vectors
+    vector<int> merged;
+    merged.reserve(vec1.size() + vec2.size());  // Reserve space for efficiency
+    merge(vec1.begin(), vec1.end(), vec2.begin(), vec2.end(), back_inserter(merged));
+    cout << "Merged vectors: ";
+    for (int x : merged) cout << x << " ";
+    cout << endl;
+    
+    // Remove duplicates
+    sort(merged.begin(), merged.end());
+    auto unique_end = unique(merged.begin(), merged.end());
+    merged.erase(unique_end, merged.end());
+    cout << "After removing duplicates: ";
+    for (int x : merged) cout << x << " ";
+    cout << "\\n" << endl;
+    
+    // 6. PERFORMANCE TIPS
+    cout << "6️⃣ PERFORMANCE TIPS:" << endl;
+    cout << "✅ Use reserve() when you know approximate size" << endl;
+    cout << "✅ Use emplace_back() instead of push_back() for complex objects" << endl;
+    cout << "✅ Use shrink_to_fit() to reduce memory after many deletions" << endl;
+    cout << "✅ Prefer range-based for loops for iteration" << endl;
+    cout << "✅ Use at() for bounds checking in debug, [] for performance" << endl << endl;
+    
+    // 7. COMMON METHODS SUMMARY
+    cout << "7️⃣ ALL VECTOR METHODS SUMMARY:" << endl;
+    cout << "📥 Adding: push_back(), emplace_back(), insert(), assign()" << endl;
+    cout << "📤 Removing: pop_back(), erase(), clear()" << endl;
+    cout << "🔍 Access: [], at(), front(), back(), data()" << endl;
+    cout << "📏 Size: size(), capacity(), empty(), max_size()" << endl;
+    cout << "🔧 Modify: resize(), reserve(), shrink_to_fit()" << endl;
+    cout << "🔄 Iterators: begin(), end(), rbegin(), rend()" << endl;
+    cout << "⚙️ Comparison: ==, !=, <, <=, >, >=" << endl;
+    
+    return 0;
+}`
+            },
+            {
+                title: 'List & Deque - Advanced Sequence Containers',
+                description: '🔗 Explore std::list (doubly linked) and std::deque (double-ended queue) with all operations!',
+                code: `// 🔗 std::list and std::deque - Advanced Sequence Containers
+#include <iostream>
+#include <list>
+#include <deque>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    cout << "=== 🔗 LIST & DEQUE COMPLETE GUIDE ===" << endl << endl;
+    
+    // PART 1: std::list (Doubly Linked List)
+    cout << "📋 PART 1: std::list (Doubly Linked List)" << endl;
+    cout << "✅ Fast insertion/deletion anywhere" << endl;
+    cout << "❌ No random access (no [] operator)" << endl;
+    cout << "❌ More memory overhead per element\\n" << endl;
+    
+    // 1. LIST CREATION AND BASIC OPERATIONS
+    cout << "1️⃣ LIST BASIC OPERATIONS:" << endl;
+    list<int> numbers = {10, 20, 30, 40, 50};
+    
+    cout << "Original list: ";
+    for (int n : numbers) cout << n << " ";
+    cout << endl;
+    
+    // Adding elements
+    numbers.push_front(5);         // Add to beginning
+    numbers.push_back(60);         // Add to end
+    numbers.emplace_front(1);      // Construct at beginning
+    numbers.emplace_back(70);      // Construct at end
+    
+    cout << "After push operations: ";
+    for (int n : numbers) cout << n << " ";
+    cout << endl;
+    
+    // Insert at specific position
+    auto it = numbers.begin();
+    advance(it, 3);                // Move iterator 3 positions
+    numbers.insert(it, 25);        // Insert 25 at position
+    
+    cout << "After insert at position 3: ";
+    for (int n : numbers) cout << n << " ";
+    cout << "\\n" << endl;
+    
+    // 2. LIST UNIQUE OPERATIONS
+    cout << "2️⃣ LIST UNIQUE OPERATIONS:" << endl;
+    list<int> list1 = {1, 3, 5, 7, 9};
+    list<int> list2 = {2, 4, 6, 8, 10};
+    
+    cout << "List1: ";
+    for (int n : list1) cout << n << " ";
+    cout << endl;
+    cout << "List2: ";
+    for (int n : list2) cout << n << " ";
+    cout << endl;
+    
+    // Merge sorted lists
+    list1.merge(list2);            // Merge list2 into list1 (both must be sorted)
+    cout << "After merge: ";
+    for (int n : list1) cout << n << " ";
+    cout << endl;
+    
+    // Splice (move elements from another list)
+    list<int> source = {100, 200, 300};
+    auto splice_pos = list1.begin();
+    advance(splice_pos, 2);
+    list1.splice(splice_pos, source);  // Move all elements from source
+    
+    cout << "After splice: ";
+    for (int n : list1) cout << n << " ";
+    cout << endl;
+    
+    // Remove elements
+    list1.remove(100);             // Remove all occurrences of 100
+    list1.remove_if([](int x) { return x > 50; }); // Remove using predicate
+    
+    cout << "After remove operations: ";
+    for (int n : list1) cout << n << " ";
+    cout << "\\n" << endl;
+    
+    // 3. LIST SORTING AND UNIQUENESS
+    cout << "3️⃣ LIST SORTING AND UNIQUENESS:" << endl;
+    list<int> unsorted = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};
+    
+    cout << "Unsorted: ";
+    for (int n : unsorted) cout << n << " ";
+    cout << endl;
+    
+    unsorted.sort();               // Sort the list
+    cout << "Sorted: ";
+    for (int n : unsorted) cout << n << " ";
+    cout << endl;
+    
+    unsorted.unique();             // Remove consecutive duplicates
+    cout << "After unique(): ";
+    for (int n : unsorted) cout << n << " ";
+    cout << "\\n" << endl;
+    
+    // PART 2: std::deque (Double-Ended Queue)
+    cout << "📊 PART 2: std::deque (Double-Ended Queue)" << endl;
+    cout << "✅ Fast insertion/deletion at both ends" << endl;
+    cout << "✅ Random access with [] operator" << endl;
+    cout << "✅ Good compromise between vector and list\\n" << endl;
+    
+    // 4. DEQUE BASIC OPERATIONS
+    cout << "4️⃣ DEQUE BASIC OPERATIONS:" << endl;
+    deque<string> words = {"middle", "content"};
+    
+    cout << "Original deque: ";
+    for (const string& word : words) cout << word << " ";
+    cout << endl;
+    
+    // Add to both ends
+    words.push_front("first");     // Add to beginning
+    words.push_back("last");       // Add to end
+    words.emplace_front("very");   // Construct at beginning
+    words.emplace_back("word");    // Construct at end
+    
+    cout << "After push operations: ";
+    for (const string& word : words) cout << word << " ";
+    cout << endl;
+    
+    // Random access (like vector)
+    cout << "Element at index 2: " << words[2] << endl;
+    cout << "Element at index 3: " << words.at(3) << endl;
+    cout << "Front: " << words.front() << ", Back: " << words.back() << endl;
+    
+    // Remove from both ends
+    words.pop_front();             // Remove first element
+    words.pop_back();              // Remove last element
+    
+    cout << "After pop operations: ";
+    for (const string& word : words) cout << word << " ";
+    cout << "\\n" << endl;
+    
+    // 5. DEQUE VS VECTOR VS LIST COMPARISON
+    cout << "5️⃣ PERFORMANCE COMPARISON:" << endl;
+    cout << "┌─────────────────┬─────────┬─────────┬──────────┐" << endl;
+    cout << "│ Operation       │ vector  │  deque  │   list   │" << endl;
+    cout << "├─────────────────┼─────────┼─────────┼──────────┤" << endl;
+    cout << "│ Random Access   │  O(1)   │  O(1)   │   O(n)   │" << endl;
+    cout << "│ Insert/Del End  │  O(1)   │  O(1)   │   O(1)   │" << endl;
+    cout << "│ Insert/Del Begin│  O(n)   │  O(1)   │   O(1)   │" << endl;
+    cout << "│ Insert/Del Mid  │  O(n)   │  O(n)   │   O(1)   │" << endl;
+    cout << "│ Memory Usage    │  Low    │ Medium  │   High   │" << endl;
+    cout << "└─────────────────┴─────────┴─────────┴──────────┘" << endl << endl;
+    
+    // 6. WHEN TO USE EACH
+    cout << "6️⃣ WHEN TO USE EACH CONTAINER:" << endl;
+    cout << "🎯 Use vector when:" << endl;
+    cout << "   • You need random access" << endl;
+    cout << "   • Mostly adding/removing at the end" << endl;
+    cout << "   • Memory efficiency is important" << endl << endl;
+    
+    cout << "🎯 Use deque when:" << endl;
+    cout << "   • You need random access" << endl;
+    cout << "   • Adding/removing at both ends" << endl;
+    cout << "   • Don't care about memory locality" << endl << endl;
+    
+    cout << "🎯 Use list when:" << endl;
+    cout << "   • Frequent insertion/deletion in middle" << endl;
+    cout << "   • Don't need random access" << endl;
+    cout << "   • Need stable iterators" << endl << endl;
+    
+    // 7. ALL METHODS SUMMARY
+    cout << "7️⃣ METHOD SUMMARY:" << endl;
+    cout << "LIST UNIQUE METHODS:" << endl;
+    cout << "  merge(), splice(), remove(), remove_if()" << endl;
+    cout << "  sort(), unique(), reverse()" << endl << endl;
+    
+    cout << "DEQUE METHODS (similar to vector + front operations):" << endl;
+    cout << "  push_front(), pop_front(), emplace_front()" << endl;
+    cout << "  All vector methods except reserve(), capacity()" << endl;
+    
+    return 0;
+}`
+            },
+            {
+                title: 'Sets & Maps - Associative Containers',
+                description: '🗂️ Master std::set, std::map and their variants - automatically sorted containers with powerful operations!',
+                code: `// 🗂️ std::set, std::map, std::multiset, std::multimap - Complete Guide
+#include <iostream>
+#include <set>
+#include <map>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    cout << "=== 🗂️ ASSOCIATIVE CONTAINERS GUIDE ===" << endl;
+    cout << "Automatically sorted containers using balanced binary search trees" << endl << endl;
+    
+    // PART 1: std::set (Unique sorted elements)
+    cout << "📚 PART 1: std::set (Unique Sorted Elements)" << endl;
+    cout << "✅ Automatically sorted" << endl;
+    cout << "✅ No duplicates allowed" << endl;
+    cout << "✅ O(log n) insert, delete, search\\n" << endl;
+    
+    // 1. SET BASIC OPERATIONS
+    cout << "1️⃣ SET BASIC OPERATIONS:" << endl;
+    set<int> numbers;
+    
+    // Insert elements
+    numbers.insert(30);
+    numbers.insert(10);
+    numbers.insert(50);
+    numbers.insert(20);
+    numbers.insert(30);        // Duplicate - will be ignored
+    
+    cout << "Set after insertions: ";
+    for (int n : numbers) cout << n << " ";
+    cout << " (automatically sorted!)" << endl;
+    
+    // Check if element exists
+    if (numbers.find(20) != numbers.end()) {
+        cout << "Found 20 in the set" << endl;
+    }
+    
+    // Count occurrences (always 0 or 1 for set)
+    cout << "Count of 30: " << numbers.count(30) << endl;
+    cout << "Count of 100: " << numbers.count(100) << endl;
+    
+    // Remove elements
+    numbers.erase(20);         // Remove by value
+    auto it = numbers.find(30);
+    if (it != numbers.end()) {
+        numbers.erase(it);     // Remove by iterator
+    }
+    
+    cout << "After removal: ";
+    for (int n : numbers) cout << n << " ";
+    cout << "\\n" << endl;
+    
+    // 2. SET ADVANCED OPERATIONS
+    cout << "2️⃣ SET ADVANCED OPERATIONS:" << endl;
+    set<string> words = {"banana", "apple", "cherry", "date", "elderberry"};
+    
+    cout << "Words set: ";
+    for (const string& word : words) cout << word << " ";
+    cout << endl;
+    
+    // Range operations
+    auto lower = words.lower_bound("c");  // First element >= "c"
+    auto upper = words.upper_bound("d");  // First element > "d"
+    
+    cout << "Elements from 'c' to 'd': ";
+    for (auto it = lower; it != upper; ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+    
+    // Equal range
+    auto range = words.equal_range("cherry");
+    cout << "Equal range for 'cherry': ";
+    for (auto it = range.first; it != range.second; ++it) {
+        cout << *it << " ";
+    }
+    cout << "\\n" << endl;
+    
+    // PART 2: std::multiset (Allows duplicates)
+    cout << "📚 PART 2: std::multiset (Allows Duplicates)" << endl;
+    multiset<int> multi_nums = {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};
+    
+    cout << "Multiset: ";
+    for (int n : multi_nums) cout << n << " ";
+    cout << " (sorted with duplicates)" << endl;
+    
+    cout << "Count of 1: " << multi_nums.count(1) << endl;
+    cout << "Count of 5: " << multi_nums.count(5) << endl;
+    
+    // Remove all occurrences of a value
+    multi_nums.erase(1);
+    cout << "After erasing all 1s: ";
+    for (int n : multi_nums) cout << n << " ";
+    cout << "\\n" << endl;
+    
+    // PART 3: std::map (Key-Value pairs, sorted by key)
+    cout << "🗺️ PART 3: std::map (Key-Value Dictionary, Sorted)" << endl;
+    cout << "✅ Key-value pairs" << endl;
+    cout << "✅ Sorted by key" << endl;
+    cout << "✅ Unique keys only\\n" << endl;
+    
+    // 3. MAP BASIC OPERATIONS
+    cout << "3️⃣ MAP BASIC OPERATIONS:" << endl;
+    map<string, int> grades;
+    
+    // Insert key-value pairs
+    grades["Alice"] = 95;              // Using [] operator
+    grades["Bob"] = 87;
+    grades.insert({"Charlie", 92});    // Using insert
+    grades.emplace("Diana", 89);       // Using emplace
+    
+    cout << "Student grades:" << endl;
+    for (const auto& pair : grades) {
+        cout << "  " << pair.first << ": " << pair.second << endl;
+    }
+    
+    // Access and modify
+    cout << "Alice's grade: " << grades["Alice"] << endl;
+    cout << "Bob's grade: " << grades.at("Bob") << endl;
+    
+    grades["Alice"] = 98;              // Update existing
+    cout << "Alice's updated grade: " << grades["Alice"] << endl;
+    
+    // Check if key exists
+    if (grades.find("Eve") == grades.end()) {
+        cout << "Eve not found in grades" << endl;
+    }
+    
+    // Safe access with find
+    auto it_find = grades.find("Charlie");
+    if (it_find != grades.end()) {
+        cout << "Charlie's grade: " << it_find->second << endl;
+    }
+    cout << endl;
+    
+    // 4. MAP ADVANCED OPERATIONS
+    cout << "4️⃣ MAP ADVANCED OPERATIONS:" << endl;
+    map<int, string> id_to_name = {
+        {101, "John"}, {102, "Jane"}, {103, "Jack"}, {104, "Jill"}
+    };
+    
+    cout << "ID to Name mapping:" << endl;
+    for (const auto& [id, name] : id_to_name) {  // C++17 structured binding
+        cout << "  ID " << id << ": " << name << endl;
+    }
+    
+    // Range operations
+    auto lower_map = id_to_name.lower_bound(102);
+    auto upper_map = id_to_name.upper_bound(103);
+    
+    cout << "IDs from 102 to 103:" << endl;
+    for (auto it = lower_map; it != upper_map; ++it) {
+        cout << "  ID " << it->first << ": " << it->second << endl;
+    }
+    cout << endl;
+    
+    // PART 4: std::multimap (Allows duplicate keys)
+    cout << "🗺️ PART 4: std::multimap (Allows Duplicate Keys)" << endl;
+    multimap<string, string> contacts;
+    
+    // Multiple phone numbers per person
+    contacts.insert({"John", "555-1234"});
+    contacts.insert({"John", "555-5678"});
+    contacts.insert({"Jane", "555-9012"});
+    contacts.insert({"John", "555-3456"});
+    
+    cout << "Contact list:" << endl;
+    for (const auto& [name, phone] : contacts) {
+        cout << "  " << name << ": " << phone << endl;
+    }
+    
+    // Find all phone numbers for a person
+    cout << "\\nAll numbers for John:" << endl;
+    auto range = contacts.equal_range("John");
+    for (auto it = range.first; it != range.second; ++it) {
+        cout << "  " << it->second << endl;
+    }
+    cout << endl;
+    
+    // 5. CUSTOM COMPARATOR EXAMPLE
+    cout << "5️⃣ CUSTOM COMPARATOR EXAMPLE:" << endl;
+    
+    // Set with custom comparator (descending order)
+    set<int, greater<int>> desc_set = {3, 1, 4, 1, 5, 9, 2, 6};
+    cout << "Descending set: ";
+    for (int n : desc_set) cout << n << " ";
+    cout << endl;
+    
+    // Map with custom comparator for string length
+    auto length_compare = [](const string& a, const string& b) {
+        return a.length() < b.length();
+    };
+    map<string, int, decltype(length_compare)> length_map(length_compare);
+    
+    length_map["Hi"] = 1;
+    length_map["Hello"] = 2;
+    length_map["A"] = 3;
+    length_map["World"] = 4;
+    
+    cout << "Map sorted by string length:" << endl;
+    for (const auto& [word, value] : length_map) {
+        cout << "  " << word << " (length " << word.length() << "): " << value << endl;
+    }
+    cout << endl;
+    
+    // 6. PERFORMANCE AND WHEN TO USE
+    cout << "6️⃣ PERFORMANCE & USAGE GUIDE:" << endl;
+    cout << "┌─────────────────┬──────────┬──────────┬─────────┐" << endl;
+    cout << "│ Operation       │   set    │   map    │  Time   │" << endl;
+    cout << "├─────────────────┼──────────┼──────────┼─────────┤" << endl;
+    cout << "│ Insert          │ O(log n) │ O(log n) │  Fast   │" << endl;
+    cout << "│ Delete          │ O(log n) │ O(log n) │  Fast   │" << endl;
+    cout << "│ Search/Find     │ O(log n) │ O(log n) │  Fast   │" << endl;
+    cout << "│ Iteration       │  O(n)    │  O(n)    │ Sorted  │" << endl;
+    cout << "└─────────────────┴──────────┴──────────┴─────────┘" << endl << endl;
+    
+    cout << "🎯 USE CASES:" << endl;
+    cout << "set/multiset: Unique sorted collections, mathematical sets" << endl;
+    cout << "map/multimap: Dictionaries, lookup tables, databases" << endl;
+    cout << "All: When you need automatic sorting and O(log n) operations" << endl;
+    
+    return 0;
+}`
+            },
+            {
+                title: 'Unordered Containers - Hash Tables',
+                description: '⚡ Master std::unordered_set and std::unordered_map - super-fast hash-based containers with O(1) operations!',
+                code: `// ⚡ std::unordered_set, std::unordered_map - Hash-based Containers
+#include <iostream>
+#include <unordered_set>
+#include <unordered_map>
+#include <string>
+#include <vector>
+using namespace std;
+
+int main() {
+    cout << "=== ⚡ UNORDERED CONTAINERS (HASH TABLES) ===" << endl;
+    cout << "Super-fast containers using hash tables for O(1) operations!" << endl << endl;
+    
+    // PART 1: std::unordered_set (Hash Set)
+    cout << "🔥 PART 1: std::unordered_set (Hash Set)" << endl;
+    cout << "✅ Average O(1) insert, delete, search" << endl;
+    cout << "✅ No automatic sorting" << endl;
+    cout << "✅ Unique elements only\\n" << endl;
+    
+    // 1. UNORDERED_SET BASIC OPERATIONS
+    cout << "1️⃣ UNORDERED_SET OPERATIONS:" << endl;
+    unordered_set<string> unique_words;
+    
+    // Insert elements
+    unique_words.insert("hello");
+    unique_words.insert("world");
+    unique_words.insert("hash");
+    unique_words.insert("table");
+    unique_words.insert("hello");    // Duplicate ignored
+    
+    cout << "Unordered set contents: ";
+    for (const string& word : unique_words) {
+        cout << word << " ";
+    }
+    cout << " (order not guaranteed)" << endl;
+    
+    // Fast lookups
+    cout << "Contains 'hello': " << (unique_words.count("hello") > 0) << endl;
+    cout << "Contains 'cpp': " << (unique_words.count("cpp") > 0) << endl;
+    
+    // Find element
+    auto it = unique_words.find("world");
+    if (it != unique_words.end()) {
+        cout << "Found: " << *it << endl;
+    }
+    
+    // Remove elements
+    unique_words.erase("hash");
+    cout << "After erasing 'hash', size: " << unique_words.size() << endl;
+    cout << endl;
+    
+    // 2. HASH PERFORMANCE ANALYSIS
+    cout << "2️⃣ HASH PERFORMANCE ANALYSIS:" << endl;
+    unordered_set<int> numbers;
+    
+    // Insert many elements
+    for (int i = 1; i <= 1000; ++i) {
+        numbers.insert(i);
+    }
+    
+    cout << "Hash set with 1000 elements:" << endl;
+    cout << "  Size: " << numbers.size() << endl;
+    cout << "  Bucket count: " << numbers.bucket_count() << endl;
+    cout << "  Load factor: " << numbers.load_factor() << endl;
+    cout << "  Max load factor: " << numbers.max_load_factor() << endl;
+    
+    // Bucket information
+    cout << "  Elements in bucket 0: " << numbers.bucket_size(0) << endl;
+    cout << "  Which bucket contains 500: " << numbers.bucket(500) << endl;
+    cout << endl;
+    
+    // PART 2: std::unordered_map (Hash Map/Dictionary)
+    cout << "🗺️ PART 2: std::unordered_map (Hash Map)" << endl;
+    cout << "✅ Key-value pairs with O(1) access" << endl;
+    cout << "✅ Perfect for dictionaries and caches\\n" << endl;
+    
+    // 3. UNORDERED_MAP BASIC OPERATIONS
+    cout << "3️⃣ UNORDERED_MAP OPERATIONS:" << endl;
+    unordered_map<string, int> word_count;
+    
+    // Count word frequencies
+    vector<string> text = {"the", "quick", "brown", "fox", "jumps", "over", 
+                          "the", "lazy", "dog", "the", "quick", "fox"};
+    
+    cout << "Counting word frequencies in text..." << endl;
+    for (const string& word : text) {
+        word_count[word]++;        // Increment count (creates if doesn't exist)
+    }
+    
+    cout << "Word frequencies:" << endl;
+    for (const auto& [word, count] : word_count) {
+        cout << "  " << word << ": " << count << endl;
+    }
+    
+    // Access methods
+    cout << "\\nAccess methods:" << endl;
+    cout << "  word_count[\\"the\\"]: " << word_count["the"] << endl;
+    cout << "  word_count.at(\\"fox\\"): " << word_count.at("fox") << endl;
+    
+    // Safe access with find
+    auto find_it = word_count.find("elephant");
+    if (find_it != word_count.end()) {
+        cout << "  Found elephant: " << find_it->second << endl;
+    } else {
+        cout << "  'elephant' not found" << endl;
+    }
+    cout << endl;
+    
+    // 4. ADVANCED HASH MAP OPERATIONS
+    cout << "4️⃣ ADVANCED OPERATIONS:" << endl;
+    unordered_map<int, string> employee_names = {
+        {101, "Alice"}, {102, "Bob"}, {103, "Charlie"}
+    };
+    
+    // Insert with different methods
+    employee_names[104] = "Diana";              // Using [] operator
+    employee_names.insert({105, "Eve"});        // Using insert
+    employee_names.emplace(106, "Frank");       // Using emplace
+    
+    // Try to insert with hint for efficiency
+    auto result = employee_names.insert({107, "Grace"});
+    if (result.second) {
+        cout << "Successfully inserted Grace" << endl;
+    }
+    
+    // Update existing value
+    employee_names[101] = "Alice Smith";        // Update Alice's name
+    
+    cout << "Employee database:" << endl;
+    for (const auto& [id, name] : employee_names) {
+        cout << "  ID " << id << ": " << name << endl;
+    }
+    cout << endl;
+    
+    // 5. MULTISET AND MULTIMAP VARIANTS
+    cout << "5️⃣ MULTI VARIANTS (Allow Duplicates):" << endl;
+    
+    // unordered_multiset
+    unordered_multiset<string> tags = {"cpp", "programming", "hash", "cpp", "fast"};
+    cout << "Multiset tags: ";
+    for (const string& tag : tags) cout << tag << " ";
+    cout << endl;
+    cout << "Count of 'cpp': " << tags.count("cpp") << endl;
+    
+    // unordered_multimap
+    unordered_multimap<string, string> phone_book;
+    phone_book.insert({"John", "555-1234"});
+    phone_book.insert({"John", "555-5678"});
+    phone_book.insert({"Jane", "555-9012"});
+    
+    cout << "\\nPhone book (multimap):" << endl;
+    for (const auto& [name, phone] : phone_book) {
+        cout << "  " << name << ": " << phone << endl;
+    }
+    cout << endl;
+    
+    // 6. CUSTOM HASH FUNCTION EXAMPLE
+    cout << "6️⃣ CUSTOM HASH FUNCTION:" << endl;
+    
+    // Custom hash for pair<int, int>
+    struct PairHash {
+        size_t operator()(const pair<int, int>& p) const {
+            return hash<int>{}(p.first) ^ (hash<int>{}(p.second) << 1);
+        }
+    };
+    
+    unordered_set<pair<int, int>, PairHash> coordinates;
+    coordinates.insert({1, 2});
+    coordinates.insert({3, 4});
+    coordinates.insert({1, 2});    // Duplicate ignored
+    
+    cout << "Coordinate set with custom hash:" << endl;
+    for (const auto& [x, y] : coordinates) {
+        cout << "  (" << x << ", " << y << ")" << endl;
+    }
+    cout << endl;
+    
+    // 7. PERFORMANCE COMPARISON
+    cout << "7️⃣ PERFORMANCE COMPARISON:" << endl;
+    cout << "┌─────────────────┬───────────┬─────────────┬──────────┐" << endl;
+    cout << "│ Operation       │ unordered │   ordered   │ Best For │" << endl;
+    cout << "├─────────────────┼───────────┼─────────────┼──────────┤" << endl;
+    cout << "│ Insert          │   O(1)    │   O(log n)  │ Speed    │" << endl;
+    cout << "│ Delete          │   O(1)    │   O(log n)  │ Speed    │" << endl;
+    cout << "│ Search          │   O(1)    │   O(log n)  │ Speed    │" << endl;
+    cout << "│ Iteration       │   O(n)    │    O(n)     │ Order    │" << endl;
+    cout << "│ Memory Usage    │  Higher   │   Lower     │ Memory   │" << endl;
+    cout << "│ Order Preserved │    No     │    Yes      │ Sorted   │" << endl;
+    cout << "└─────────────────┴───────────┴─────────────┴──────────┘" << endl << endl;
+    
+    // 8. WHEN TO USE EACH
+    cout << "8️⃣ WHEN TO USE EACH:" << endl;
+    cout << "🚀 Use unordered containers when:" << endl;
+    cout << "   • Need fastest possible lookup/insertion" << endl;
+    cout << "   • Don't need sorted order" << endl;
+    cout << "   • Have good hash function" << endl;
+    cout << "   • Memory usage not critical" << endl << endl;
+    
+    cout << "🎯 Use ordered containers when:" << endl;
+    cout << "   • Need sorted iteration" << endl;
+    cout << "   • Need range queries" << endl;
+    cout << "   • Memory efficiency important" << endl;
+    cout << "   • Predictable performance required" << endl << endl;
+    
+    // 9. HASH CONTAINER METHODS SUMMARY
+    cout << "9️⃣ HASH CONTAINER METHODS:" << endl;
+    cout << "Basic: insert(), erase(), find(), count(), clear()" << endl;
+    cout << "Hash info: bucket_count(), load_factor(), rehash()" << endl;
+    cout << "Capacity: size(), empty(), max_size()" << endl;
+    cout << "Hash policy: max_load_factor(), rehash(), reserve()" << endl;
+    
+    return 0;
+}`
+            },
+            {
+                title: 'Container Adapters - Stack, Queue, Priority Queue',
+                description: '🔧 Master container adapters - stack, queue, and priority_queue built on top of other containers!',
+                code: `// 🔧 Container Adapters: stack, queue, priority_queue
+#include <iostream>
+#include <stack>
+#include <queue>
+#include <priority_queue>
+#include <vector>
+#include <deque>
+#include <string>
+using namespace std;
+
+int main() {
+    cout << "=== 🔧 CONTAINER ADAPTERS COMPLETE GUIDE ===" << endl;
+    cout << "Specialized interfaces built on top of sequence containers" << endl << endl;
+    
+    // PART 1: std::stack (LIFO - Last In, First Out)
+    cout << "📚 PART 1: std::stack (LIFO Container)" << endl;
+    cout << "✅ Last In, First Out access" << endl;
+    cout << "✅ Built on deque by default" << endl;
+    cout << "✅ Perfect for undo operations, expression evaluation\\n" << endl;
+    
+    // 1. STACK BASIC OPERATIONS
+    cout << "1️⃣ STACK BASIC OPERATIONS:" << endl;
+    stack<string> book_stack;
+    
+    // Push elements (add to top)
+    book_stack.push("Foundation");
+    book_stack.push("Dune");
+    book_stack.push("Neuromancer");
+    book_stack.push("Hyperion");
+    
+    cout << "Stack size: " << book_stack.size() << endl;
+    cout << "Top book: " << book_stack.top() << endl;
+    
+    // Pop elements (remove from top)
+    cout << "\\nRemoving books from stack:" << endl;
+    while (!book_stack.empty()) {
+        cout << "Reading: " << book_stack.top() << endl;
+        book_stack.pop();
+        cout << "Remaining books: " << book_stack.size() << endl;
+    }
+    cout << endl;
+    
+    // 2. STACK WITH DIFFERENT UNDERLYING CONTAINERS
+    cout << "2️⃣ STACK WITH DIFFERENT CONTAINERS:" << endl;
+    
+    // Stack using vector as underlying container
+    stack<int, vector<int>> vector_stack;
+    vector_stack.push(10);
+    vector_stack.push(20);
+    vector_stack.push(30);
+    cout << "Vector-based stack top: " << vector_stack.top() << endl;
+    
+    // Stack using deque (default)
+    stack<int> deque_stack;  // Same as stack<int, deque<int>>
+    deque_stack.push(100);
+    deque_stack.push(200);
+    cout << "Deque-based stack top: " << deque_stack.top() << endl;
+    cout << endl;
+    
+    // 3. STACK PRACTICAL EXAMPLE - BALANCED PARENTHESES
+    cout << "3️⃣ PRACTICAL EXAMPLE - BALANCED PARENTHESES:" << endl;
+    
+    auto check_balanced = [](const string& expr) {
+        stack<char> paren_stack;
+        
+        for (char c : expr) {
+            if (c == '(' || c == '[' || c == '{') {
+                paren_stack.push(c);
+            } else if (c == ')' || c == ']' || c == '}') {
+                if (paren_stack.empty()) return false;
+                
+                char top = paren_stack.top();
+                paren_stack.pop();
+                
+                if ((c == ')' && top != '(') ||
+                    (c == ']' && top != '[') ||
+                    (c == '}' && top != '{')) {
+                    return false;
+                }
+            }
+        }
+        return paren_stack.empty();
+    };
+    
+    vector<string> expressions = {"(a+b)", "([{}])", "(()", "([)]"};
+    for (const string& expr : expressions) {
+        cout << expr << " is " << (check_balanced(expr) ? "balanced" : "unbalanced") << endl;
+    }
+    cout << endl;
+    
+    // PART 2: std::queue (FIFO - First In, First Out)
+    cout << "🚶 PART 2: std::queue (FIFO Container)" << endl;
+    cout << "✅ First In, First Out access" << endl;
+    cout << "✅ Built on deque by default" << endl;
+    cout << "✅ Perfect for task scheduling, breadth-first search\\n" << endl;
+    
+    // 4. QUEUE BASIC OPERATIONS
+    cout << "4️⃣ QUEUE BASIC OPERATIONS:" << endl;
+    queue<string> customer_queue;
+    
+    // Push elements (add to back)
+    customer_queue.push("Alice");
+    customer_queue.push("Bob");
+    customer_queue.push("Charlie");
+    customer_queue.push("Diana");
+    
+    cout << "Queue size: " << customer_queue.size() << endl;
+    cout << "Front customer: " << customer_queue.front() << endl;
+    cout << "Back customer: " << customer_queue.back() << endl;
+    
+    // Pop elements (remove from front)
+    cout << "\\nServing customers:" << endl;
+    while (!customer_queue.empty()) {
+        cout << "Serving: " << customer_queue.front() << endl;
+        customer_queue.pop();
+        cout << "Customers waiting: " << customer_queue.size() << endl;
+    }
+    cout << endl;
+    
+    // 5. QUEUE PRACTICAL EXAMPLE - TASK SCHEDULER
+    cout << "5️⃣ PRACTICAL EXAMPLE - TASK SCHEDULER:" << endl;
+    
+    struct Task {
+        string name;
+        int priority;
+        Task(string n, int p) : name(n), priority(p) {}
+    };
+    
+    queue<Task> task_queue;
+    task_queue.push(Task("Send email", 1));
+    task_queue.push(Task("Update website", 2));
+    task_queue.push(Task("Backup data", 3));
+    
+    cout << "Processing tasks in FIFO order:" << endl;
+    while (!task_queue.empty()) {
+        Task current = task_queue.front();
+        task_queue.pop();
+        cout << "Executing: " << current.name << " (priority " << current.priority << ")" << endl;
+    }
+    cout << endl;
+    
+    // PART 3: std::priority_queue (Heap-based Priority Queue)
+    cout << "🔥 PART 3: std::priority_queue (Max Heap by Default)" << endl;
+    cout << "✅ Highest priority element always at top" << endl;
+    cout << "✅ Built on vector by default" << endl;
+    cout << "✅ Perfect for scheduling, graph algorithms\\n" << endl;
+    
+    // 6. PRIORITY_QUEUE BASIC OPERATIONS
+    cout << "6️⃣ PRIORITY_QUEUE BASIC OPERATIONS:" << endl;
+    priority_queue<int> max_heap;
+    
+    // Push elements
+    max_heap.push(30);
+    max_heap.push(10);
+    max_heap.push(50);
+    max_heap.push(20);
+    max_heap.push(40);
+    
+    cout << "Priority queue (max heap):" << endl;
+    cout << "Size: " << max_heap.size() << endl;
+    cout << "Top (highest): " << max_heap.top() << endl;
+    
+    // Pop elements (always removes highest priority)
+    cout << "\\nPopping elements in priority order:" << endl;
+    while (!max_heap.empty()) {
+        cout << max_heap.top() << " ";
+        max_heap.pop();
+    }
+    cout << endl << endl;
+    
+    // 7. MIN HEAP (REVERSE PRIORITY)
+    cout << "7️⃣ MIN HEAP (Lowest First):" << endl;
+    priority_queue<int, vector<int>, greater<int>> min_heap;
+    
+    min_heap.push(30);
+    min_heap.push(10);
+    min_heap.push(50);
+    min_heap.push(20);
+    
+    cout << "Min heap - popping smallest first:" << endl;
+    while (!min_heap.empty()) {
+        cout << min_heap.top() << " ";
+        min_heap.pop();
+    }
+    cout << endl << endl;
+    
+    // 8. PRIORITY_QUEUE WITH CUSTOM COMPARATOR
+    cout << "8️⃣ CUSTOM PRIORITY - TASK SCHEDULING:" << endl;
+    
+    struct PriorityTask {
+        string name;
+        int urgency;  // Higher number = more urgent
+        int id;
+        
+        PriorityTask(string n, int u, int i) : name(n), urgency(u), id(i) {}
+    };
+    
+    // Custom comparator - higher urgency has higher priority
+    auto task_compare = [](const PriorityTask& a, const PriorityTask& b) {
+        if (a.urgency != b.urgency) return a.urgency < b.urgency;  // Higher urgency first
+        return a.id > b.id;  // Earlier ID first if same urgency
+    };
+    
+    priority_queue<PriorityTask, vector<PriorityTask>, decltype(task_compare)> 
+        priority_tasks(task_compare);
+    
+    priority_tasks.push(PriorityTask("Regular backup", 2, 1));
+    priority_tasks.push(PriorityTask("Fix critical bug", 5, 2));
+    priority_tasks.push(PriorityTask("Update documentation", 1, 3));
+    priority_tasks.push(PriorityTask("Security patch", 5, 4));
+    priority_tasks.push(PriorityTask("Code review", 3, 5));
+    
+    cout << "Tasks by priority (urgency, then ID):" << endl;
+    while (!priority_tasks.empty()) {
+        PriorityTask task = priority_tasks.top();
+        priority_tasks.pop();
+        cout << "Execute: " << task.name << " (urgency: " << task.urgency 
+             << ", ID: " << task.id << ")" << endl;
+    }
+    cout << endl;
+    
+    // 9. PERFORMANCE COMPARISON
+    cout << "9️⃣ PERFORMANCE COMPARISON:" << endl;
+    cout << "┌─────────────────┬─────────┬─────────┬──────────────┐" << endl;
+    cout << "│ Operation       │  stack  │  queue  │ priority_queue│" << endl;
+    cout << "├─────────────────┼─────────┼─────────┼──────────────┤" << endl;
+    cout << "│ Push/Insert     │  O(1)   │  O(1)   │   O(log n)   │" << endl;
+    cout << "│ Pop/Remove      │  O(1)   │  O(1)   │   O(log n)   │" << endl;
+    cout << "│ Top/Front       │  O(1)   │  O(1)   │     O(1)     │" << endl;
+    cout << "│ Size/Empty      │  O(1)   │  O(1)   │     O(1)     │" << endl;
+    cout << "└─────────────────┴─────────┴─────────┴──────────────┘" << endl << endl;
+    
+    // 10. WHEN TO USE EACH ADAPTER
+    cout << "🔟 WHEN TO USE EACH ADAPTER:" << endl;
+    cout << "🥞 Use stack when:" << endl;
+    cout << "   • Need LIFO behavior" << endl;
+    cout << "   • Implementing undo/redo" << endl;
+    cout << "   • Expression evaluation" << endl;
+    cout << "   • Depth-first search" << endl << endl;
+    
+    cout << "🚶 Use queue when:" << endl;
+    cout << "   • Need FIFO behavior" << endl;
+    cout << "   • Task scheduling" << endl;
+    cout << "   • Breadth-first search" << endl;
+    cout << "   • Producer-consumer problems" << endl << endl;
+    
+    cout << "🔥 Use priority_queue when:" << endl;
+    cout << "   • Need elements by priority" << endl;
+    cout << "   • Implementing Dijkstra's algorithm" << endl;
+    cout << "   • Task scheduling with priorities" << endl;
+    cout << "   • Finding k largest/smallest elements" << endl << endl;
+    
+    // 11. ALL METHODS SUMMARY
+    cout << "1️⃣1️⃣ ADAPTER METHODS SUMMARY:" << endl;
+    cout << "STACK: push(), pop(), top(), empty(), size()" << endl;
+    cout << "QUEUE: push(), pop(), front(), back(), empty(), size()" << endl;
+    cout << "PRIORITY_QUEUE: push(), pop(), top(), empty(), size()" << endl;
+    cout << "Note: No iterators available for adapters!" << endl;
+    
+    return 0;
+}`
+            },
+            {
+                title: 'STL Algorithms & Iterators',
+                description: '⚡ Master STL algorithms and iterators - powerful tools that work with all containers!',
+                code: `// ⚡ STL Algorithms & Iterators - Complete Guide
+#include <iostream>
+#include <vector>
+#include <list>
+#include <algorithm>
+#include <numeric>
+#include <functional>
+#include <iterator>
+#include <string>
+using namespace std;
+
+int main() {
+    cout << "=== ⚡ STL ALGORITHMS & ITERATORS GUIDE ===" << endl;
+    cout << "Powerful generic algorithms that work with all containers!" << endl << endl;
+    
+    // PART 1: Iterator Types and Categories
+    cout << "🔄 PART 1: ITERATOR TYPES" << endl;
+    cout << "✅ Input Iterator: Read-only, forward only" << endl;
+    cout << "✅ Output Iterator: Write-only" << endl;
+    cout << "✅ Forward Iterator: Read/write, forward only" << endl;
+    cout << "✅ Bidirectional Iterator: Forward + backward" << endl;
+    cout << "✅ Random Access Iterator: Jump to any position\\n" << endl;
+    
+    // 1. BASIC ITERATOR USAGE
+    cout << "1️⃣ BASIC ITERATOR USAGE:" << endl;
+    vector<int> numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    
+    cout << "Forward iteration: ";
+    for (auto it = numbers.begin(); it != numbers.end(); ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+    
+    cout << "Reverse iteration: ";
+    for (auto it = numbers.rbegin(); it != numbers.rend(); ++it) {
+        cout << *it << " ";
+    }
+    cout << endl;
+    
+    // Random access iterator features
+    auto it = numbers.begin();
+    cout << "Element at begin(): " << *it << endl;
+    cout << "Element at begin() + 3: " << *(it + 3) << endl;
+    cout << "Distance from begin() to end(): " << distance(numbers.begin(), numbers.end()) << endl;
+    cout << endl;
+    
+    // PART 2: Searching Algorithms
+    cout << "🔍 PART 2: SEARCHING ALGORITHMS" << endl;
+    
+    // 2. LINEAR SEARCH ALGORITHMS
+    cout << "2️⃣ LINEAR SEARCH:" << endl;
+    vector<string> words = {"apple", "banana", "cherry", "date", "elderberry"};
+    
+    // find() - find first occurrence
+    auto found = find(words.begin(), words.end(), "cherry");
+    if (found != words.end()) {
+        cout << "Found 'cherry' at position: " << distance(words.begin(), found) << endl;
+    }
+    
+    // find_if() - find with predicate
+    auto long_word = find_if(words.begin(), words.end(), 
+                            [](const string& word) { return word.length() > 6; });
+    if (long_word != words.end()) {
+        cout << "First long word: " << *long_word << endl;
+    }
+    
+    // count() and count_if()
+    vector<int> digits = {1, 2, 3, 2, 4, 2, 5, 6, 2, 7};
+    cout << "Count of 2: " << count(digits.begin(), digits.end(), 2) << endl;
+    cout << "Count of even numbers: " << 
+        count_if(digits.begin(), digits.end(), [](int x) { return x % 2 == 0; }) << endl;
+    cout << endl;
+    
+    // 3. BINARY SEARCH ALGORITHMS (require sorted data)
+    cout << "3️⃣ BINARY SEARCH (Sorted Data):" << endl;
+    vector<int> sorted_nums = {10, 20, 30, 40, 50, 60, 70, 80, 90};
+    
+    // binary_search()
+    bool exists = binary_search(sorted_nums.begin(), sorted_nums.end(), 50);
+    cout << "50 exists: " << (exists ? "Yes" : "No") << endl;
+    
+    // lower_bound() and upper_bound()
+    auto lower = lower_bound(sorted_nums.begin(), sorted_nums.end(), 40);
+    auto upper = upper_bound(sorted_nums.begin(), sorted_nums.end(), 40);
+    cout << "Lower bound of 40 at index: " << distance(sorted_nums.begin(), lower) << endl;
+    cout << "Upper bound of 40 at index: " << distance(sorted_nums.begin(), upper) << endl;
+    
+    // equal_range()
+    auto range = equal_range(sorted_nums.begin(), sorted_nums.end(), 50);
+    cout << "Equal range for 50: [" << distance(sorted_nums.begin(), range.first) 
+         << ", " << distance(sorted_nums.begin(), range.second) << ")" << endl;
+    cout << endl;
+    
+    // PART 3: Sorting Algorithms
+    cout << "📊 PART 3: SORTING ALGORITHMS" << endl;
+    
+    // 4. SORTING VARIATIONS
+    cout << "4️⃣ SORTING VARIATIONS:" << endl;
+    vector<int> unsorted = {64, 34, 25, 12, 22, 11, 90, 88, 76, 50, 42};
+    
+    // Basic sort
+    vector<int> copy1 = unsorted;
+    sort(copy1.begin(), copy1.end());
+    cout << "Sorted ascending: ";
+    for (int x : copy1) cout << x << " ";
+    cout << endl;
+    
+    // Sort with custom comparator
+    vector<int> copy2 = unsorted;
+    sort(copy2.begin(), copy2.end(), greater<int>());
+    cout << "Sorted descending: ";
+    for (int x : copy2) cout << x << " ";
+    cout << endl;
+    
+    // Partial sort - only sort first n elements
+    vector<int> copy3 = unsorted;
+    partial_sort(copy3.begin(), copy3.begin() + 5, copy3.end());
+    cout << "Partial sort (first 5): ";
+    for (int x : copy3) cout << x << " ";
+    cout << endl;
+    
+    // nth_element - partition around nth element
+    vector<int> copy4 = unsorted;
+    nth_element(copy4.begin(), copy4.begin() + 5, copy4.end());
+    cout << "After nth_element (5th): ";
+    for (int x : copy4) cout << x << " ";
+    cout << " (5th element: " << copy4[5] << ")" << endl;
+    cout << endl;
+    
+    // PART 4: Modifying Algorithms
+    cout << "✏️ PART 4: MODIFYING ALGORITHMS" << endl;
+    
+    // 5. TRANSFORMATION ALGORITHMS
+    cout << "5️⃣ TRANSFORMATION:" << endl;
+    vector<int> source = {1, 2, 3, 4, 5};
+    vector<int> squared(source.size());
+    
+    // transform() - apply function to each element
+    transform(source.begin(), source.end(), squared.begin(),
+              [](int x) { return x * x; });
+    cout << "Original: ";
+    for (int x : source) cout << x << " ";
+    cout << endl;
+    cout << "Squared: ";
+    for (int x : squared) cout << x << " ";
+    cout << endl;
+    
+    // for_each() - apply function to each element
+    cout << "Doubling each element: ";
+    for_each(source.begin(), source.end(), [](int& x) { x *= 2; });
+    for (int x : source) cout << x << " ";
+    cout << endl;
+    cout << endl;
+    
+    // 6. COPY AND MOVE ALGORITHMS
+    cout << "6️⃣ COPY AND MOVE:" << endl;
+    vector<int> original = {10, 20, 30, 40, 50};
+    vector<int> destination(original.size());
+    
+    // copy()
+    copy(original.begin(), original.end(), destination.begin());
+    cout << "Copied: ";
+    for (int x : destination) cout << x << " ";
+    cout << endl;
+    
+    // copy_if() - conditional copy
+    vector<int> evens;
+    copy_if(original.begin(), original.end(), back_inserter(evens),
+            [](int x) { return x % 2 == 0; });
+    cout << "Even numbers: ";
+    for (int x : evens) cout << x << " ";
+    cout << endl;
+    
+    // remove() and remove_if()
+    vector<int> with_duplicates = {1, 2, 2, 3, 2, 4, 5, 2, 6};
+    cout << "Before remove: ";
+    for (int x : with_duplicates) cout << x << " ";
+    cout << endl;
+    
+    auto new_end = remove(with_duplicates.begin(), with_duplicates.end(), 2);
+    with_duplicates.erase(new_end, with_duplicates.end());
+    cout << "After removing 2s: ";
+    for (int x : with_duplicates) cout << x << " ";
+    cout << endl;
+    cout << endl;
+    
+    // PART 5: Numeric Algorithms
+    cout << "🔢 PART 5: NUMERIC ALGORITHMS" << endl;
+    
+    // 7. MATHEMATICAL OPERATIONS
+    cout << "7️⃣ MATHEMATICAL OPERATIONS:" << endl;
+    vector<int> values = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    
+    // accumulate() - sum all elements
+    int sum = accumulate(values.begin(), values.end(), 0);
+    cout << "Sum: " << sum << endl;
+    
+    // accumulate() with custom operation
+    int product = accumulate(values.begin(), values.end(), 1, 
+                            [](int a, int b) { return a * b; });
+    cout << "Product: " << product << endl;
+    
+    // inner_product() - dot product
+    vector<int> weights = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
+    int dot_product = inner_product(values.begin(), values.end(), 
+                                   weights.begin(), 0);
+    cout << "Dot product: " << dot_product << endl;
+    
+    // partial_sum() - running totals
+    vector<int> running_sums(values.size());
+    partial_sum(values.begin(), values.end(), running_sums.begin());
+    cout << "Running sums: ";
+    for (int x : running_sums) cout << x << " ";
+    cout << endl;
+    cout << endl;
+    
+    // PART 6: Set Operations (on sorted ranges)
+    cout << "📊 PART 6: SET OPERATIONS" << endl;
+    
+    // 8. SET ALGORITHMS
+    cout << "8️⃣ SET ALGORITHMS:" << endl;
+    vector<int> set1 = {1, 2, 3, 4, 5};
+    vector<int> set2 = {3, 4, 5, 6, 7};
+    
+    cout << "Set 1: ";
+    for (int x : set1) cout << x << " ";
+    cout << endl;
+    cout << "Set 2: ";
+    for (int x : set2) cout << x << " ";
+    cout << endl;
+    
+    // set_union()
+    vector<int> union_result;
+    set_union(set1.begin(), set1.end(), set2.begin(), set2.end(),
+              back_inserter(union_result));
+    cout << "Union: ";
+    for (int x : union_result) cout << x << " ";
+    cout << endl;
+    
+    // set_intersection()
+    vector<int> intersection_result;
+    set_intersection(set1.begin(), set1.end(), set2.begin(), set2.end(),
+                    back_inserter(intersection_result));
+    cout << "Intersection: ";
+    for (int x : intersection_result) cout << x << " ";
+    cout << endl;
+    
+    // set_difference()
+    vector<int> difference_result;
+    set_difference(set1.begin(), set1.end(), set2.begin(), set2.end(),
+                  back_inserter(difference_result));
+    cout << "Difference (1-2): ";
+    for (int x : difference_result) cout << x << " ";
+    cout << endl;
+    cout << endl;
+    
+    // PART 7: Heap Operations
+    cout << "🔥 PART 7: HEAP OPERATIONS" << endl;
+    
+    // 9. HEAP ALGORITHMS
+    cout << "9️⃣ HEAP ALGORITHMS:" << endl;
+    vector<int> heap_data = {4, 1, 3, 2, 16, 9, 10, 14, 8, 7};
+    
+    cout << "Original: ";
+    for (int x : heap_data) cout << x << " ";
+    cout << endl;
+    
+    // make_heap() - create max heap
+    make_heap(heap_data.begin(), heap_data.end());
+    cout << "Max heap: ";
+    for (int x : heap_data) cout << x << " ";
+    cout << " (top: " << heap_data.front() << ")" << endl;
+    
+    // push_heap() - add element to heap
+    heap_data.push_back(15);
+    push_heap(heap_data.begin(), heap_data.end());
+    cout << "After push 15: ";
+    for (int x : heap_data) cout << x << " ";
+    cout << " (top: " << heap_data.front() << ")" << endl;
+    
+    // pop_heap() - remove top element
+    pop_heap(heap_data.begin(), heap_data.end());
+    int popped = heap_data.back();
+    heap_data.pop_back();
+    cout << "Popped: " << popped << ", remaining: ";
+    for (int x : heap_data) cout << x << " ";
+    cout << endl;
+    
+    // sort_heap() - sort the heap
+    sort_heap(heap_data.begin(), heap_data.end());
+    cout << "Sorted heap: ";
+    for (int x : heap_data) cout << x << " ";
+    cout << endl;
+    cout << endl;
+    
+    // 10. ALGORITHM COMPLEXITY SUMMARY
+    cout << "🔟 ALGORITHM COMPLEXITY SUMMARY:" << endl;
+    cout << "┌─────────────────────┬─────────────┬──────────────────┐" << endl;
+    cout << "│ Algorithm Type      │ Complexity  │ Example          │" << endl;
+    cout << "├─────────────────────┼─────────────┼──────────────────┤" << endl;
+    cout << "│ Linear Search       │    O(n)     │ find(), count()  │" << endl;
+    cout << "│ Binary Search       │  O(log n)   │ binary_search()  │" << endl;
+    cout << "│ Sorting             │ O(n log n)  │ sort()           │" << endl;
+    cout << "│ Heap Operations     │  O(log n)   │ push_heap()      │" << endl;
+    cout << "│ Linear Transform    │    O(n)     │ transform()      │" << endl;
+    cout << "│ Set Operations      │   O(n+m)    │ set_union()      │" << endl;
+    cout << "└─────────────────────┴─────────────┴──────────────────┘" << endl << endl;
+    
+    cout << "🎯 KEY TAKEAWAYS:" << endl;
+    cout << "✅ STL algorithms work with iterators, not containers directly" << endl;
+    cout << "✅ Most algorithms don't modify container size" << endl;
+    cout << "✅ Use remove/erase idiom for actual element removal" << endl;
+    cout << "✅ Binary search algorithms require sorted data" << endl;
+    cout << "✅ Lambda functions make custom predicates easy" << endl;
+    cout << "✅ back_inserter() helps when output size is unknown" << endl;
+    
+    return 0;
+}`
+            },
+            {
+                title: 'String & Array - Special STL Containers',
+                description: '📝 Master std::string and std::array - specialized containers for text and fixed-size data!',
+                code: `// 📝 std::string and std::array - Special STL Containers
+#include <iostream>
+#include <string>
+#include <array>
+#include <algorithm>
+#include <sstream>
+#include <vector>
+using namespace std;
+
+int main() {
+    cout << "=== 📝 STRING & ARRAY CONTAINERS ===" << endl;
+    cout << "Specialized STL containers for text and fixed-size collections" << endl << endl;
+    
+    // PART 1: std::string (Dynamic Character Container)
+    cout << "📚 PART 1: std::string - Dynamic Text Container" << endl;
+    cout << "✅ Dynamic size like vector<char>" << endl;
+    cout << "✅ Specialized for text operations" << endl;
+    cout << "✅ Rich set of string manipulation functions\\n" << endl;
+    
+    // 1. STRING CREATION AND BASIC OPERATIONS
+    cout << "1️⃣ STRING CREATION:" << endl;
+    string empty_str;                              // Empty string
+    string hello = "Hello";                        // C-string constructor
+    string world("World");                         // C-string constructor
+    string repeated(5, 'A');                       // 5 A's: "AAAAA"
+    string copied(hello);                          // Copy constructor
+    string substring(hello, 1, 3);                // Substring: "ell"
+    
+    cout << "hello: '" << hello << "'" << endl;
+    cout << "repeated: '" << repeated << "'" << endl;
+    cout << "substring: '" << substring << "'" << endl;
+    cout << "Length of hello: " << hello.length() << endl;
+    cout << "Size of hello: " << hello.size() << endl;
+    cout << "Capacity: " << hello.capacity() << endl;
+    cout << endl;
+    
+    // 2. STRING MODIFICATION OPERATIONS
+    cout << "2️⃣ STRING MODIFICATION:" << endl;
+    string text = "Programming";
+    
+    cout << "Original: '" << text << "'" << endl;
+    
+    // Append operations
+    text += " is";                                 // Append string
+    text.append(" awesome!");                      // Append method
+    text.push_back('!');                          // Add single character
+    
+    cout << "After appends: '" << text << "'" << endl;
+    
+    // Insert operations
+    text.insert(0, "C++ ");                       // Insert at position
+    text.insert(text.end(), ' ');                 // Insert at end using iterator
+    
+    cout << "After inserts: '" << text << "'" << endl;
+    
+    // Replace operations
+    text.replace(0, 3, "Python");                 // Replace "C++" with "Python"
+    cout << "After replace: '" << text << "'" << endl;
+    
+    // Erase operations
+    text.erase(0, 7);                             // Remove "Python "
+    text.pop_back();                              // Remove last character
+    
+    cout << "After erase: '" << text << "'" << endl;
+    cout << endl;
+    
+    // 3. STRING SEARCHING AND FINDING
+    cout << "3️⃣ STRING SEARCHING:" << endl;
+    string sentence = "The quick brown fox jumps over the lazy dog";
+    
+    cout << "Sentence: '" << sentence << "'" << endl;
+    
+    // Find operations
+    size_t pos = sentence.find("fox");
+    if (pos != string::npos) {
+        cout << "Found 'fox' at position: " << pos << endl;
+    }
+    
+    // Find with starting position
+    size_t the_pos = sentence.find("the", 20);    // Find "the" after position 20
+    if (the_pos != string::npos) {
+        cout << "Found 'the' after pos 20 at: " << the_pos << endl;
+    }
+    
+    // Reverse find
+    size_t last_o = sentence.rfind('o');
+    cout << "Last 'o' at position: " << last_o << endl;
+    
+    // Find first/last of character set
+    size_t vowel = sentence.find_first_of("aeiou");
+    cout << "First vowel at position: " << vowel << " ('" << sentence[vowel] << "')" << endl;
+    
+    size_t consonant = sentence.find_first_not_of("aeiou ");
+    cout << "First consonant at position: " << consonant << " ('" << sentence[consonant] << "')" << endl;
+    cout << endl;
+    
+    // 4. STRING COMPARISON AND OPERATIONS
+    cout << "4️⃣ STRING COMPARISON:" << endl;
+    string str1 = "apple";
+    string str2 = "banana";
+    string str3 = "apple";
+    
+    cout << "str1: '" << str1 << "', str2: '" << str2 << "', str3: '" << str3 << "'" << endl;
+    
+    // Comparison operators
+    cout << "str1 == str3: " << (str1 == str3) << endl;
+    cout << "str1 < str2: " << (str1 < str2) << endl;
+    cout << "str1 > str2: " << (str1 > str2) << endl;
+    
+    // Compare method (returns negative, 0, or positive)
+    int cmp = str1.compare(str2);
+    cout << "str1.compare(str2): " << cmp << " (negative = less than)" << endl;
+    cout << endl;
+    
+    // 5. STRING CONVERSION AND PARSING
+    cout << "5️⃣ STRING CONVERSION:" << endl;
+    
+    // Number to string
+    int number = 42;
+    double pi = 3.14159;
+    string num_str = to_string(number);
+    string pi_str = to_string(pi);
+    
+    cout << "Number " << number << " as string: '" << num_str << "'" << endl;
+    cout << "Pi " << pi << " as string: '" << pi_str << "'" << endl;
+    
+    // String to number
+    string age_str = "25";
+    string price_str = "19.99";
+    
+    int age = stoi(age_str);                      // String to int
+    double price = stod(price_str);               // String to double
+    
+    cout << "Age string '" << age_str << "' as int: " << age << endl;
+    cout << "Price string '" << price_str << "' as double: " << price << endl;
+    cout << endl;
+    
+    // 6. STRING STREAM OPERATIONS
+    cout << "6️⃣ STRING STREAM OPERATIONS:" << endl;
+    
+    // Building strings with stringstream
+    stringstream ss;
+    ss << "User: " << "Alice" << ", Age: " << 30 << ", Score: " << 95.5;
+    string result = ss.str();
+    cout << "Built string: '" << result << "'" << endl;
+    
+    // Parsing with stringstream
+    stringstream parser("apple,banana,cherry");
+    string item;
+    cout << "Parsed items: ";
+    while (getline(parser, item, ',')) {
+        cout << "'" << item << "' ";
+    }
+    cout << endl << endl;
+    
+    // PART 2: std::array (Fixed-Size Container)
+    cout << "🔢 PART 2: std::array - Fixed-Size Container" << endl;
+    cout << "✅ Fixed size determined at compile time" << endl;
+    cout << "✅ Zero overhead compared to C arrays" << endl;
+    cout << "✅ STL algorithms and iterators support\\n" << endl;
+    
+    // 7. ARRAY CREATION AND ACCESS
+    cout << "7️⃣ ARRAY CREATION AND ACCESS:" << endl;
+    array<int, 5> numbers = {10, 20, 30, 40, 50};
+    array<string, 3> colors = {"red", "green", "blue"};
+    array<double, 4> grades;                      // Uninitialized
+    
+    // Fill with default value
+    grades.fill(85.5);
+    
+    cout << "Numbers array: ";
+    for (size_t i = 0; i < numbers.size(); ++i) {
+        cout << numbers[i] << " ";
+    }
+    cout << endl;
+    
+    cout << "Colors array: ";
+    for (const auto& color : colors) {
+        cout << color << " ";
+    }
+    cout << endl;
+    
+    cout << "Grades array: ";
+    for (const auto& grade : grades) {
+        cout << grade << " ";
+    }
+    cout << endl;
+    
+    // Array properties
+    cout << "Numbers size: " << numbers.size() << endl;
+    cout << "Numbers max_size: " << numbers.max_size() << endl;
+    cout << "Empty? " << (numbers.empty() ? "Yes" : "No") << endl;
+    cout << endl;
+    
+    // 8. ARRAY ELEMENT ACCESS
+    cout << "8️⃣ ARRAY ELEMENT ACCESS:" << endl;
+    
+    cout << "First element: " << numbers.front() << endl;
+    cout << "Last element: " << numbers.back() << endl;
+    cout << "Element at index 2: " << numbers.at(2) << endl;
+    cout << "Element using []: " << numbers[3] << endl;
+    
+    // Get raw pointer to data
+    int* raw_ptr = numbers.data();
+    cout << "Raw pointer access: " << raw_ptr[1] << endl;
+    cout << endl;
+    
+    // 9. ARRAY WITH STL ALGORITHMS
+    cout << "9️⃣ ARRAY WITH STL ALGORITHMS:" << endl;
+    array<int, 8> data = {64, 34, 25, 12, 22, 11, 90, 88};
+    
+    cout << "Original: ";
+    for (int x : data) cout << x << " ";
+    cout << endl;
+    
+    // Sort
+    sort(data.begin(), data.end());
+    cout << "Sorted: ";
+    for (int x : data) cout << x << " ";
+    cout << endl;
+    
+    // Find element
+    auto it = find(data.begin(), data.end(), 25);
+    if (it != data.end()) {
+        cout << "Found 25 at index: " << distance(data.begin(), it) << endl;
+    }
+    
+    // Count elements
+    int count_even = count_if(data.begin(), data.end(), 
+                             [](int x) { return x % 2 == 0; });
+    cout << "Even numbers count: " << count_even << endl;
+    
+    // Min and max
+    auto min_it = min_element(data.begin(), data.end());
+    auto max_it = max_element(data.begin(), data.end());
+    cout << "Min: " << *min_it << ", Max: " << *max_it << endl;
+    cout << endl;
+    
+    // 10. ARRAY COMPARISON AND SWAPPING
+    cout << "🔟 ARRAY COMPARISON AND SWAPPING:" << endl;
+    array<int, 3> arr1 = {1, 2, 3};
+    array<int, 3> arr2 = {1, 2, 3};
+    array<int, 3> arr3 = {4, 5, 6};
+    
+    cout << "arr1: ";
+    for (int x : arr1) cout << x << " ";
+    cout << endl;
+    cout << "arr2: ";
+    for (int x : arr2) cout << x << " ";
+    cout << endl;
+    cout << "arr3: ";
+    for (int x : arr3) cout << x << " ";
+    cout << endl;
+    
+    // Comparison
+    cout << "arr1 == arr2: " << (arr1 == arr2) << endl;
+    cout << "arr1 == arr3: " << (arr1 == arr3) << endl;
+    cout << "arr1 < arr3: " << (arr1 < arr3) << endl;
+    
+    // Swap
+    cout << "\\nBefore swap - arr1: ";
+    for (int x : arr1) cout << x << " ";
+    cout << ", arr3: ";
+    for (int x : arr3) cout << x << " ";
+    cout << endl;
+    
+    arr1.swap(arr3);
+    
+    cout << "After swap - arr1: ";
+    for (int x : arr1) cout << x << " ";
+    cout << ", arr3: ";
+    for (int x : arr3) cout << x << " ";
+    cout << endl << endl;
+    
+    // 11. PERFORMANCE COMPARISON
+    cout << "1️⃣1️⃣ PERFORMANCE COMPARISON:" << endl;
+    cout << "┌─────────────────┬─────────┬─────────┬─────────┬─────────┐" << endl;
+    cout << "│ Feature         │ string  │  array  │ vector  │ C-array │" << endl;
+    cout << "├─────────────────┼─────────┼─────────┼─────────┼─────────┤" << endl;
+    cout << "│ Size            │ Dynamic │  Fixed  │ Dynamic │  Fixed  │" << endl;
+    cout << "│ Memory          │  Heap   │  Stack  │  Heap   │  Stack  │" << endl;
+    cout << "│ Bounds Check    │   Yes   │   Yes   │   Yes   │   No    │" << endl;
+    cout << "│ STL Compatible  │   Yes   │   Yes   │   Yes   │  Partial│" << endl;
+    cout << "│ Overhead        │  Small  │  None   │  Small  │  None   │" << endl;
+    cout << "└─────────────────┴─────────┴─────────┴─────────┴─────────┘" << endl << endl;
+    
+    // 12. WHEN TO USE EACH
+    cout << "1️⃣2️⃣ WHEN TO USE:" << endl;
+    cout << "🎯 Use string when:" << endl;
+    cout << "   • Working with text data" << endl;
+    cout << "   • Need dynamic size" << endl;
+    cout << "   • Need rich string operations" << endl;
+    cout << "   • Text parsing and manipulation" << endl << endl;
+    
+    cout << "🎯 Use array when:" << endl;
+    cout << "   • Know exact size at compile time" << endl;
+    cout << "   • Want stack allocation" << endl;
+    cout << "   • Need zero overhead" << endl;
+    cout << "   • Replacing C-style arrays" << endl << endl;
+    
+    // 13. ALL METHODS SUMMARY
+    cout << "1️⃣3️⃣ METHODS SUMMARY:" << endl;
+    cout << "STRING METHODS:" << endl;
+    cout << "  Construction: string(), string(const char*), string(size_t, char)" << endl;
+    cout << "  Access: [], at(), front(), back(), data(), c_str()" << endl;
+    cout << "  Modify: +=, append(), insert(), erase(), replace(), clear()" << endl;
+    cout << "  Search: find(), rfind(), find_first_of(), find_last_of()" << endl;
+    cout << "  Compare: ==, !=, <, >, compare()" << endl;
+    cout << "  Convert: to_string(), stoi(), stod(), stof()" << endl << endl;
+    
+    cout << "ARRAY METHODS:" << endl;
+    cout << "  Access: [], at(), front(), back(), data()" << endl;
+    cout << "  Capacity: size(), max_size(), empty()" << endl;
+    cout << "  Modify: fill(), swap()" << endl;
+    cout << "  Iterators: begin(), end(), rbegin(), rend()" << endl;
+    cout << "  Compare: ==, !=, <, <=, >, >=" << endl;
     
     return 0;
 }`

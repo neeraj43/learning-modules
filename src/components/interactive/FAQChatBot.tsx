@@ -331,35 +331,35 @@ const FAQChatBot = () => {
       tags: ['career', 'learning', 'technology', 'staying-current', 'growth']
     },
     {
-      id: 41,
+      id: '41',
       question: 'What are the main differences between C++ and other programming languages?',
       answer: 'C++ offers direct memory management, multiple inheritance, and compiled performance. Unlike Python/JavaScript, it requires manual memory management but provides maximum control and speed.',
       category: 'C++',
       tags: ['cpp', 'comparison', 'memory', 'performance']
     },
     {
-      id: 42,
+      id: '42',
       question: 'How do pointers work in C++ and why are they important?',
       answer: 'Pointers store memory addresses of variables. They\'re crucial for dynamic memory allocation, building data structures like linked lists, and enabling efficient parameter passing.',
       category: 'C++',
       tags: ['cpp', 'pointers', 'memory', 'data-structures']
     },
     {
-      id: 43,
+      id: '43',
       question: 'What data structure should I use for fast searching?',
       answer: 'Hash tables (O(1) average), binary search trees (O(log n)), or sorted arrays with binary search (O(log n)). Hash tables are fastest for key-based lookups.',
       category: 'Data Structures',
       tags: ['data-structures', 'searching', 'performance', 'optimization']
     },
     {
-      id: 44,
+      id: '44',
       question: 'When should I use a linked list vs an array?',
       answer: 'Use arrays for: random access, cache efficiency, known size. Use linked lists for: frequent insertions/deletions, unknown size, memory scattered access patterns.',
       category: 'Data Structures',
       tags: ['data-structures', 'arrays', 'linked-lists', 'comparison']
     },
     {
-      id: 45,
+      id: '45',
       question: 'How do I avoid memory leaks in C++?',
       answer: 'Use RAII principles, smart pointers (unique_ptr, shared_ptr), match every \'new\' with \'delete\', use containers like vector instead of raw arrays, and use tools like valgrind for detection.',
       category: 'C++',

@@ -51,9 +51,11 @@ const DevToolsHandler = () => {
   useEffect(() => {
     if (typeof window !== 'undefined' && process.env.NODE_ENV === 'development') {
       // Check if React DevTools is present
+      const windowWithDevTools = window as typeof window & {
+        __REACT_DEVTOOLS_GLOBAL_HOOK__?: unknown;
+      };
       const isReactDevToolsPresent = !!(
-        window.__REACT_DEVTOOLS_GLOBAL_HOOK__ || 
-        (window as Record<string, unknown>).__REACT_DEVTOOLS_GLOBAL_HOOK__
+        windowWithDevTools.__REACT_DEVTOOLS_GLOBAL_HOOK__
       )
 
       if (isReactDevToolsPresent) {

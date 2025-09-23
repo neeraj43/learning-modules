@@ -248,12 +248,12 @@ const BeginnerGuide: React.FC<BeginnerGuideProps> = ({ topic, steps, nextTopics 
             <span className="font-semibold text-green-800">Congratulations! 🎉</span>
           </div>
           <p className="text-green-700 text-sm mb-3">
-            You've completed the {topic} guide! You're ready to move on to more advanced topics.
+            You&apos;ve completed the {topic} guide! You&apos;re ready to move on to more advanced topics.
           </p>
           
           {nextTopics && nextTopics.length > 0 && (
             <div>
-              <p className="text-green-700 text-sm font-medium mb-2">What's next:</p>
+              <p className="text-green-700 text-sm font-medium mb-2">What&apos;s next:</p>
               <div className="flex flex-wrap gap-2">
                 {nextTopics.map((next, index) => (
                   <span
